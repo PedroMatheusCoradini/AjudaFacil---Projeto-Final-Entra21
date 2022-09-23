@@ -1,73 +1,71 @@
 ﻿<body>
-    <div>
-        <h1 id="titulo">Cadastro de clientes</h1>
-        <p id="subtitulo">Complete com suas informações</p>
-        <br>
-    </div>
+    <div id="cadastro-clientes">
+        <form class="container">
+            <div class="container">
+                <div>
+                    <h1 id="titulo">Cadastro de clientes</h1>
+                    <p id="subtitulo">Complete com suas informações</p>
+                    <br>
+                </div>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" required>
+                    </div>
+                    <div class="campo">
+                        <label for="dataNascimento">Data de Nascimento</label>
+                        <input type="text" name="nascimento" id="nascimento" required>
+                    </div>
+                </fieldset>
 
-    <form>
-        <fieldset class="grupo">
-            <div class="campo">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" required>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cpf">CPF/CNPJ</label>
+                        <input type="text" name="cpf" id="cpf" required>
+                    </div>
+                </fieldset>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="rg">RG</label>
+                        <input type="text" name="rg" id="rg" required>
+                    </div>
+                    <div class="campo">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" name="endereco" id="endereco" required>
+                    </div>
+                </fieldset>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="bairro" id="bairro" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cidade">Fone/Celular</label>
+                        <input type="text" name="fone" id="fone" required>
+                    </div>
+                </fieldset>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="sexo">Sexo</label>
+                        <center>
+                            <label>
+                                <input class="inputMasculino" type="radio" name="sexo" value="masculino"> Masculino
+                                <input class="inputFeminino" type="radio" name="sexo" value="feminino">Feminino
+                            </label>
+                        </center>
+                    </div>
+                </fieldset>
+                <div>
+                    <button type="button" class="btn btn-outline-warning">Enviar</button>
+                    <button type="button" class="btn btn-outline-warning">Cancelar</button>
+                    @*<button type="submit">Enviar</button>*@
+                    @*<input type="reset" name="enviar" value="Cancelar">*@
+                </div>
             </div>
-            <div class="campo">
-                <label for="dataNascimento">Data de Nascimento</label>
-                <input type="text" name="nascimento" id="nascimento" required>
-            </div>
-        </fieldset>
-        <fieldset class="grupo">
-        <div class="campo">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" required>
-        </div>
-        <div class="campo">
-            <label for="cpf">CPF/CNPJ</label>
-            <input type="text" name="cpf" id="cpf" required>
-        </div>
-        </fieldset>
-        <fieldset class="grupo">
-        <div class="campo">
-            <label for="rg">RG</label>
-            <input type="text" name="rg" id="rg" required>
-        </div>
-        <div class="campo">
-            <label for="endereco">Endereço</label>
-            <input type="text" name="endereco" id="endereco" required>
-        </div>
-        </fieldset>
-        <fieldset class="grupo">
-        <div class="campo">
-            <label for="cidade">Cidade</label>
-            <input type="text" name="bairro" id="bairro" required>
-        </div>
-        <div class="campo">
-            <label for="cidade">Fone/Celular</label>
-            <input type="text" name="fone" id="fone" required>
-        </div>
-        </fieldset>
-        <fieldset class="grupo">
-        <div class="campo">
-            <label for="sexo">Sexo</label>
-            <center>
-            <label>
-                <input type="radio" name="sexo" value="masculino"> Masculino
-                <input type="radio" name="sexo" value="feminino">Feminino
-            </label>
-        </center>
-        </div>
-        </fieldset>
-        <div class="campo">
-            <label>Tipo de Pessoa</label>
-            <select id="tipoPessoa">
-                <option></option>
-            <option>Juridica</option>
-            <option>fisíca</option>
-        </select>
-        </div>
-        <div>
-             <button type="submit">Enviar</button>
-                <input type="reset" name="enviar" value="Cancelar">
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
