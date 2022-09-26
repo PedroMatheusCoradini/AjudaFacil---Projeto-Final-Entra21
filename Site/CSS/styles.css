@@ -66,7 +66,7 @@ nav a{
     box-shadow: 7px, 7px, 15px 0 rgb(50, 50, 50, 0.22);
     padding: 10px;
     margin: 10px;
-    width: 200px;
+    width: 180px;
     transition: all 0.3s ease-out;
     background-color: rgb(235, 225, 225);
 
@@ -78,8 +78,8 @@ nav a{
 }
 .image{
     align-items: center;
-    max-width: 180px;
-    max-height: 120px;
+    max-width: 160px;
+    max-height: 110px;
 
 }
 
@@ -103,121 +103,181 @@ footer .assinatura{
     padding-left: 25px;
 }
 
-
-/* pagina do login*/
+     /* ======================== pagina do contato ============================*/
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
-    color: #323232;
-    border: none;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Helvetica;
+color: #323232;
+border: none;
 }
-  
+textarea:focus, input:focus{
+outline: none;
+}
 
-  textarea:focus, input:focus{
-    outline: none;
-  }
+a, label{
+font-size: .8rem;
+}
 
-  a, label{
+a:hover{
+color: #085588;
+}
+
+#login-container{
+background-color: rgb(62, 130, 199);
+width: 450px;
+height: 600px;
+margin-left: 450px;
+margin-right: 200px;
+padding: 20px 30px;
+margin-top: 10vh;
+border-radius: 10px;
+text-align: center;
+}
+
+form {
+margin-top: 20px;
+margin-bottom: 30px;
+}
+
+label, input{
+display: block;
+width: 100%;
+text-align: left;
+}
+
+label{
+font-weight: bold;
+}
+
+input{
+border-bottom: 2px solid #323232;
+padding: 10px;
+font-size: 1rem;
+margin-bottom: 20px;
+}
+
+label,
+textarea {
     font-size: .8rem;
-  }
+    letter-spacing: 1px;
+}
+textarea {
+    padding: 25px;
+    width: 390px;
+    line-height: 1.5;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+   
 
-  a:hover{
-    color: #085588;
-  }
-  
-  #login-container{
-    background-color: rgb(62, 130, 199);
-    width: 400px;
-    height: 500px;
-    margin-left: auto;
-    margin-right: 200px;
-    padding: 20px 30px;
-    margin-top: 10vh;
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  form {
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-
-  label, input{
+label {
     display: block;
-    width: 100%;
-    text-align: left;
-  }
-
-  label{
-    font-weight: bold;
-  }
-
-  input{
-    border-bottom: 2px solid #323232;
-    padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  input:focus{
-    border-bottom: 2px solid #085588;
-  }
-
-  #forgot-pass{
-    text-align: right;
-    display: block;
-  }
-
-  input[type="submit"]{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: none;
-    height: 40px;
-    border-radius: 20px;
-    margin-top: 30px;
-    color: #fff;
-    background-color: #085588;
-    cursor: pointer;
-  }
-
-  input[type="submit"]:hover{
-    background-color: #1b223c;
-    transition: .5s;
-  }
-
-  #social-container, #social-container p{
-    margin-bottom: 20px;
-  }
-
-  #social-container i {
-    height: 40px;
-    width: 40px;
-    background-color: red;
-    border-radius: 50%;
-    line-height: 40px;
-    color: #fff;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-
-  .fa-facebook-f {
-    background-color: #3b5998;
-  }
-
-  .fa-linkedin {
-    background-color: #0077b5;
-  }
-
-  #register-container p {
     margin-bottom: 10px;
-  }
+}
+
+input:focus{
+border-bottom: 2px solid #085588;
+}
+
+input[type="submit"]{
+text-align: center;
+text-transform: uppercase;
+font-weight: bold;
+border: none;
+height: 40px;
+border-radius: 20px;
+margin-top: 30px;
+color: #fff;
+background-color: #085588;
+cursor: pointer;
+}
+
+input[type="submit"]:hover{
+background-color: #1b223c;
+transition: .5s;
+} 
+
+    /* ======================== pagina do sobre ============================*/
+
+.texto2{
+    text-align: left;
+    margin-left: 150px;
+    margin-top: 100px;
+    color: red;
+}
+.paragrafo{
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 150px;
+    font-family: sans-serif;
+}
+.bloco{
+  margin-top: -250px;
+  margin-left: 700px;
+   
+}
+
+    /* ======================== pagina do cadastro ============================*/
+
+.txt1{
+    text-align: left;
+    margin-top: 100px;
+    margin-left: 200px;
+    color: red;
+} 
+.txt2{
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 200px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
+.txt3{
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 200px;
+    font-family: sans-serif;
+}
+div.tres {
+    width: 900px;
+    height: 30px;
+    margin-left: 200px;
+    margin-top: 10px;
+    border: 25px solid; 
+    border-color: rgb(62, 130, 199);
+}
+.txt4{
+    margin-left: -5px;
+    margin-top: -15px;
+    color: white;
+}
+.prg{
+    margin-left: 200px;
+    margin-top: 40px;
+    width: 900px;
+    height: 30px;
+}
+    
+   
+    
+    
+    
+    
 
 
 
 
 
 
+
+
+     
+
+
+
+  
+  
