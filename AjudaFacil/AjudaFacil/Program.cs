@@ -1,7 +1,11 @@
+using AjudaFacil.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+ConfigureServices(builder);
 
 var app = builder.Build();
 
@@ -25,3 +29,11 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+void ConfigureServices(WebApplicationBuilder builder)
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<DataContext>(options => 
+        options.UseSqlServer(connectionString));
+}

@@ -1,0 +1,2 @@
+SqlServer Rodando com docker: "Server=localhost,1433;Database=Nome do banco;User ID=sa;Password=1q2w3e4r@#$"
+SqlServer Puro: 
