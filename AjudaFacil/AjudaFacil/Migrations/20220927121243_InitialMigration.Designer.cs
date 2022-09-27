@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AjudaFacil.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220926133432_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20220927121243_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,9 @@ namespace AjudaFacil.Migrations
 
                     b.Property<string>("DescriptionOfClothes")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(300)
+                        .HasColumnType("VARCHAR(300)")
+                        .HasColumnName("DescriptionOfClothes");
 
                     b.Property<int>("DonationId")
                         .HasColumnType("int");
@@ -43,17 +45,19 @@ namespace AjudaFacil.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
+                    b.Property<int>("QuantityOfClothes")
+                        .HasColumnType("INT")
+                        .HasColumnName("QuantityOfClothes");
 
-                    b.Property<int>("quantityOfClothes")
-                        .HasColumnType("int");
+                    b.Property<int>("Weight")
+                        .HasColumnType("INT")
+                        .HasColumnName("Weight");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DonationId");
 
-                    b.ToTable("ClothingDonations");
+                    b.ToTable("ClothingDonation", (string)null);
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.Donation", b =>
@@ -64,14 +68,14 @@ namespace AjudaFacil.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("DonorId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DonorId");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Donations");
+                    b.ToTable("Donation", (string)null);
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.SchoolSupplieDonation", b =>
@@ -84,7 +88,9 @@ namespace AjudaFacil.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(300)
+                        .HasColumnType("VARCHAR(300)")
+                        .HasColumnName("Description");
 
                     b.Property<int>("DonationId")
                         .HasColumnType("int");
@@ -94,13 +100,14 @@ namespace AjudaFacil.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Weight")
-                        .HasColumnType("int");
+                        .HasColumnType("INT")
+                        .HasColumnName("Weight");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DonationId");
 
-                    b.ToTable("SchoolSuppliesDonations");
+                    b.ToTable("SchoolSupplieDonation", (string)null);
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.User", b =>
@@ -112,101 +119,124 @@ namespace AjudaFacil.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Adress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(80)
+                        .HasColumnType("VARCHAR(80)")
+                        .HasColumnName("Adress");
 
                     b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("SMALLDATETIME")
+                        .HasColumnName("BirthDate");
 
                     b.Property<string>("CNPJ")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("VARCHAR(20)")
+                        .HasColumnName("CNPJ");
 
                     b.Property<string>("CPF")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("VARCHAR(15)")
+                        .HasColumnName("CPF");
 
                     b.Property<int>("Cep")
-                        .HasColumnType("int");
+                        .HasMaxLength(16)
+                        .HasColumnType("INT")
+                        .HasColumnName("Cep");
 
                     b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("VARCHAR(30)")
+                        .HasColumnName("City");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(160)
+                        .HasColumnType("VARCHAR(160)")
+                        .HasColumnName("Email");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR(100)")
+                        .HasColumnName("LastName");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR(100)")
+                        .HasColumnName("Name");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR(255)")
+                        .HasColumnName("Password");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("VARCHAR(20)")
+                        .HasColumnName("PhoneNumber");
 
                     b.Property<string>("ResidentialPhone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("VARCHAR(10)")
+                        .HasColumnName("ResidentialPhone");
 
                     b.Property<string>("Sex")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("VARCHAR(20)")
+                        .HasColumnName("Sex");
 
                     b.Property<int>("TotalDonations")
-                        .HasColumnType("int");
+                        .HasMaxLength(1000)
+                        .HasColumnType("INT")
+                        .HasColumnName("TotalDonations");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User", (string)null);
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.ClothingDonation", b =>
                 {
-                    b.HasOne("AjudaFacil.Models.Donation", "Donation")
+                    b.HasOne("AjudaFacil.Models.Donation", "Donations")
                         .WithMany("ClothingDonations")
                         .HasForeignKey("DonationId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_ClothingDonation_DonationId");
 
-                    b.Navigation("Donation");
+                    b.Navigation("Donations");
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.Donation", b =>
                 {
-                    b.HasOne("AjudaFacil.Models.User", "Donor")
+                    b.HasOne("AjudaFacil.Models.User", "User")
                         .WithMany("Donations")
-                        .HasForeignKey("DonorId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_Donation_User");
 
-                    b.Navigation("Donor");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.SchoolSupplieDonation", b =>
                 {
-                    b.HasOne("AjudaFacil.Models.Donation", "Donation")
-                        .WithMany("SchoolSuppliesDonations")
+                    b.HasOne("AjudaFacil.Models.Donation", "Donations")
+                        .WithMany("SchoolSupplieDonations")
                         .HasForeignKey("DonationId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_SchoolSupplieDonation_DonationId");
 
-                    b.Navigation("Donation");
+                    b.Navigation("Donations");
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.Donation", b =>
                 {
                     b.Navigation("ClothingDonations");
 
-                    b.Navigation("SchoolSuppliesDonations");
+                    b.Navigation("SchoolSupplieDonations");
                 });
 
             modelBuilder.Entity("AjudaFacil.Models.User", b =>

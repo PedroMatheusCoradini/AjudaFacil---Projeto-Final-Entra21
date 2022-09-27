@@ -3,7 +3,7 @@
 public class Donation
 {
     public int Id { get; set; }
-    public User Donor { get; set; }
-    public List<ClothingDonation> ClothingDonations { get; set; } = new List<ClothingDonation>();
-    public List<SchoolSupplieDonation> SchoolSuppliesDonations { get; set; } = new List<SchoolSupplieDonation>();
+    public User User { get; set; }
+    public IList<SchoolSupplieDonation> SchoolSupplieDonations { get; set; }
+    public IList<ClothingDonation> ClothingDonations { get; set; }
 }
