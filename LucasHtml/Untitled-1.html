@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Formulario.css">
+    <title>Cadastro</title>
+</head>
+<nav>  
+    <center>
+            <a href="Untitled-1.html">Home</a>
+               <a href="produtos.html">Empresa</a>
+           </nav>
+    </center>
+<body>
+
+    <div>
+        <h1 id="titulo">Cadastro de clientes</h1>
+        <p id="subtitulo">Complete com suas informações</p>
+        <br>
+    </div>
+
+    <form>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
+            <div class="campo">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="text" name="nascimento" id="nascimento" required>
+            </div>
+        </fieldset>
+        <fieldset class="grupo">
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required>
+        </div>
+        <div class="campo">
+            <label for="cpf">CPF/CNPJ</label>
+            <input type="text" name="cpf" id="cpf" required>
+        </div>
+        </fieldset>
+        <fieldset class="grupo">
+        <div class="campo">
+            <label for="rg">RG</label>
+            <input type="text" name="rg" id="rg" required>
+        </div>
+        <div class="campo">
+            <label for="endereco">Endereço</label>
+            <input type="text" name="endereco" id="endereco" required>
+        </div>
+        </fieldset>
+        <fieldset class="grupo">
+        <div class="campo">
+            <label for="cidade">Cidade</label>
+            <input type="text" name="bairro" id="bairro" required>
+        </div>
+        <div class="campo">
+            <label for="cidade">Fone/Celular</label>
+            <input type="text" name="fone" id="fone" required>
+        </div>
+        </fieldset>
+        <fieldset class="grupo">
+        <div class="campo">
+            <label for="sexo">Sexo</label>
+            <center>
+            <label>
+                <input type="radio" name="sexo" value="masculino"> Masculino
+
+                <input type="radio" name="sexo" value="feminino">Feminino
+            </label>
+        </center>
+
+        </div>
+        </fieldset>
+        <div class="campo">
+            <label>Tipo de Pessoa</label>
+            <select id="tipoPessoa">
+                <option></option>
+            <option>Juridica</option>
+            <option>fisíca</option>
+        </select>
+        </div>
+        <div>
+             <button type="submit">Enviar</button>
+                <input type="reset" name="enviar" value="Cancelar">
+        </div>
+    </form>
+    
+</body>
+</html>

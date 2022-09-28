@@ -1,0 +1,91 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Formulario.css">
+    <title>Cadastro</title>
+    <body class="produto">
+    </head>
+<nav>  
+    
+    <center>
+            <a href="Untitled-1.html">Home</a>
+               <a href="produtos.html">Empresa</a>
+           </nav>
+    </center>
+    <div>
+    
+    
+    <div>
+        <h1 id="tituloprodutos">O que você deseja doar?</object></h1>
+        <br>
+    </div>
+
+    <form>
+        <fieldset class="grupoprodutos">
+            <div class="campoprodutos">
+                
+                <label for="nome">Titulo</label>
+                <br>
+                <input type="text" name="nome" label="Título*"  class="titulo" placeholder="Nome do produto">
+            </div>
+            </fieldset>
+            
+            <fieldset class="grupoprodutos">
+                <label>Descrição</label>
+                <br>
+                <textarea name="mensagem" rows="5" label="Descrição*" class="mensagem" >
+                    
+                </textarea>
+        </fieldset>
+        <br>
+        <br>
+        
+
+            <fieldset class="grupoprodutos">
+            <label>Tipo da Doação</label>
+            <br>
+        <select name="doacao" required class="doacao">
+            <label>Selecione o tipo da sua Doação</label>
+            <option></option>
+            <option value="Materiais-Escolares">Materiais Escolares</option>
+            <option value="Moveis">Móveis</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Roupas">Roupas</option>
+            </select>
+            </fieldset>
+
+            <fieldset class="grupoprodutos">
+                <div class="cep"><label>Localização</label></div>
+                <input type="text"  name="cep" mask="zipcode" label="Localizacao*" placeholder="CEP" >
+                </div>
+                </fieldset>
+                <fieldset>
+                    <label>Telefone</label>
+                    <br>
+                    <input type="text" name="telefone" placeholder="DDD + número" class="telefone">
+                </fieldset>
+                <br>
+                <br>
+                <fieldset>
+                     
+                    <span class="image-Usuario">Adicionar fotos JPG e PNG somente</span>
+                    <div class="imageUsuario">
+                    <input class="imagem_Usuario" type="file" accept=".jpg, .jpeg, .png" >    
+                    </div>
+                </fieldset>
+                <br>
+                <br>
+                
+                <div>
+                    <button type="submit" name="butao">Enviar</button>
+                       <input type="reset" name="enviar" value="Cancelar">
+               </div>
+                
+    </form>
+
+</div>
+
+    
+</body>
+</html>
