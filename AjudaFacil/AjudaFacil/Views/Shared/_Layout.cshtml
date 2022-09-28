@@ -26,22 +26,22 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Entrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Donations" asp-action="GetAllSchoolSupplieDonation">Doação de materiais escolares</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Donations" asp-action="CreateSchoolSupplieDonation">Criar doacao</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateUser">Entrar</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Doações
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Donations" asp-action="CreateSchoolSupplieDonation">Materiais Escolares</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Donations" asp-action="CreateClothingDonation">Roupas e Alimentos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item">Outros</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

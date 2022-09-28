@@ -16,6 +16,7 @@ public class User
     public string PhoneNumber { get; set; }
     public string ResidentialPhone { get; set; }
     public string Sex { get; set; }
-    public int TotalDonations { get; set; }
-    public IList<Donation> Donations { get; set; } = new List<Donation>();
+    public int TotalDonations { get; set; } = 0;
+    public IList<Donation> Donations { get; set; }
 }
+
