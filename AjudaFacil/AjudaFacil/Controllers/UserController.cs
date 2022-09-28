@@ -15,7 +15,7 @@ public class UserController : Controller
     [HttpPost, ActionName("CreateUser")]
     public IActionResult CreateUser([FromServices] DataContext context, User user)
     {
-        var usuario = new User
+        /*var usuario = new User
         {
             Name = user.Name,
             LastName = "coradini",
@@ -31,9 +31,9 @@ public class UserController : Controller
             ResidentialPhone = "sem telefone residencial",
             Sex = "masculino",
             TotalDonations = 2
-        };
+        };*/
 
-        context.User.Add(usuario);
+        context.User.Add(user);
         context.SaveChanges();
 
         return RedirectToAction(nameof(CreateUser));
