@@ -33,8 +33,8 @@ app.Run();
 
 void ConfigureServices(WebApplicationBuilder builder)
 {
-    builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("AjudaFacilDb"));
-    /*var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    builder.Services.AddDbContext<DataContext>(options => 
-        options.UseSqlServer(connectionString));*/
+    //builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("AjudaFacilDb"));
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<DataContext>(options =>
+        options.UseSqlServer(connectionString));
 }

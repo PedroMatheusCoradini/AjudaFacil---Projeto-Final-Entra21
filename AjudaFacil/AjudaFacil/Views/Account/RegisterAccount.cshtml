@@ -1,8 +1,8 @@
-﻿@model AjudaFacil.Models.User
+﻿@model AjudaFacil.ViewModels.Accounts.RegisterViewModel
 
 <body>
     <div id="cadastro-clientes">
-        <form asp-action="CreateUser" class="container">
+        <form asp-action="RegisterAccount" class="container">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="container">
                 <div>
@@ -12,13 +12,13 @@
                 </div>
                 <fieldset class="grupo">
                     <div class="campo">
-                        <label asp-for="Name" for="nome">Nome</label>
-                        <input asp-for="Name" type="text" name="nome" id="nome" required>
+                        <label asp-for="Name" for="nome">Name</label>
+                        <input asp-for="Name" type="text" name="Name" id="nome" required>
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="campo">
                         <label asp-for="LastName" for="nome"></label>
-                        <input asp-for="LastName" type="text" name="nome" id="nome" required>
+                        <input asp-for="LastName" type="text" name="LastName" id="nome" required>
                         <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
                 </fieldset>
@@ -26,25 +26,25 @@
                 <fieldset class="grupo">
                     <div class="campo">
                         <label asp-for="Email" for="email">Email</label>
-                        <input asp-for="Email" type="text" name="email" id="email" required>
+                        <input asp-for="Email" type="text" name="Email" id="email" required>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="campo">
-                        <label asp-for="CPF" for="cpf">CPF/CNPJ</label>
-                        <input asp-for="CPF" type="text" name="cpf" id="cpf" required>
+                        <label asp-for="CPF" for="cpf">CPF</label>
+                        <input asp-for="CPF" type="text" name="CPF" id="cpf" required>
                         <span asp-validation-for="CPF" class="text-danger"></span>
                     </div>
                 </fieldset>
 
                 <fieldset class="grupo">
-                    @*<div class="campo">
+                    <div class="campo">
                         <label asp-for="BirthDate" for="dataNascimento">Data de Nascimento</label>
-                        <input asp-for="BirthDate" type="text" name="nascimento" id="nascimento" required>
+                        <input asp-for="BirthDate" type="text" name="BirthDate" id="nascimento" required>
                         <span asp-validation-for="BirthDate" class="text-danger"></span>
-                    </div>*@
+                    </div>
                     <div class="campo">
                         <label asp-for="Adress" for="endereco">Endereço</label>
-                        <input asp-for="Adress" type="text" name="endereco" id="endereco" required>
+                        <input asp-for="Adress" type="text" name="Adress" id="Adress" required>
                         <span asp-validation-for="Adress" class="text-danger"></span>
                     </div>
                 </fieldset>
@@ -52,19 +52,15 @@
                 <fieldset class="grupo">
                     <div class="campo">
                         <label asp-for="City" for="cidade">Cidade</label>
-                        <input asp-for="City" type="text" name="bairro" id="bairro" required>
+                        <input asp-for="City" type="text" name="City" id="City" required>
                         <span asp-validation-for="City" class="text-danger"></span>
                     </div>
                     <div class="campo">
                         <label asp-for="Password" for="cidade">Senhá</label>
-                        <input asp-for="Password" type="text" name="bairro" id="bairro" required>
+                        <input asp-for="Password" type="text" name="Password" id="Password" required>
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
-                    @*<div class="campo">
-                        <label for="cidade">Celular</label>
-                        <input asp-for="PhoneNumber" type="text" name="fone" id="fone" required>
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </div>*@
+
                 </fieldset>
 
                 <fieldset class="grupo">
@@ -80,7 +76,6 @@
                 </fieldset>
 
                 <div>
-                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
                     <button type="submit" class="btn btn-outline-warning">Enviar</button>
                     <button type="submit" class="btn btn-outline-warning">Cancelar</button>
                 </div>
