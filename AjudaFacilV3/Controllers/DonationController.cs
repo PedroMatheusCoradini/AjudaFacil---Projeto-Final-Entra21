@@ -30,11 +30,9 @@ public class DonationController : Controller
 	[ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateSchoolSupplieDonation([Bind("Id,Description,Weight,Image,User")] SchoolSupplieDonationViewModel donation)
     {
-        SchoolSupplieDonation schoolSupplieDonation;
-
         if (ModelState.IsValid)
 		{
-            schoolSupplieDonation = new SchoolSupplieDonation
+            var schoolSupplieDonation = new SchoolSupplieDonation
             {
                 Id = donation.Id,
                 Description = donation.Description,
