@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-AjudaFacilV2-fa36d33b-e893-4d8c-ac11-a10de40252a2</UserSecretsId>
+    <UserSecretsId>aspnet-AjudaFacilV3-f91db6b6-6f73-4d05-92fa-f01748cb846e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

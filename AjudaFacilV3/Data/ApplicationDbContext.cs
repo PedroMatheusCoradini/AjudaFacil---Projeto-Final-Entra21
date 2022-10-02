@@ -1,9 +1,9 @@
 ﻿using AjudaFacil.Data.Mappings;
-using AjudaFacilV2.Models;
+using AjudaFacilV3.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AjudaFacilV2.Data;
+namespace AjudaFacilV3.Data;
 
 public class ApplicationDbContext : IdentityDbContext
 {
@@ -13,13 +13,6 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<Donation> Donations { get; set; }
-    public DbSet<ClothingDonation> ClothingDonations { get; set; }
     public DbSet<SchoolSupplieDonation> SchoolSupplieDonations { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfiguration(new DonationMap());
-        modelBuilder.ApplyConfiguration(new ClothingDonationMap());
-        modelBuilder.ApplyConfiguration(new SchoolSupplieDonationMap());
-    }
+    public DbSet<ClothingDonation> ClothingDonations { get; set; }
 }
