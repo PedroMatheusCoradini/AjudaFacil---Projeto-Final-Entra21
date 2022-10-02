@@ -12,6 +12,7 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
+    public DbSet<UserProfile> Profiles { get; set; }
     public DbSet<Donation> Donations { get; set; }
     public DbSet<SchoolSupplieDonation> SchoolSupplieDonations { get; set; }
     public DbSet<ClothingDonation> ClothingDonations { get; set; }
