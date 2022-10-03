@@ -3,6 +3,7 @@ using AjudaFacilV3.Models;
 using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -51,5 +52,26 @@ public class DonationController : Controller
         }
 
         return View(donation);
+    }
+
+    
+    public async Task<IActionResult> DetailsDonation()
+    {
+        return _context.SchoolSupplieDonations != null ?
+            View(await _context.SchoolSupplieDonations
+            .AsNoTracking()
+            .Include(x => x.Donations)
+            .Where(x => x.Donations.User == User.Identity.Name)
+            .Select(x => new UserDonationsViewModel
+            {
+                Id = x.Id,
+                CreateAt = x.Donations.CreateAt,
+                Description = x.Description,
+                Weight = x.Weight,
+                Image = x.Image,
+                User = x.Donations.User
+            })
+            .ToListAsync()) :
+            Problem("Não encontramos nenhuma doação!");
     }
 }
