@@ -16,9 +16,14 @@ public class UserProfileController : Controller
         _context = context;
     }
 
-    public IActionResult UpdateProfile()
+    public async Task<IActionResult> UpdateProfile()
     {
-        return View();
+        return _context.Profiles != null ?
+            View(await _context.Profiles
+            .AsNoTracking()
+            .Where(x => x.User == User.Identity.Name)
+            .FirstOrDefaultAsync(x => x.User == User.Identity.Name)) :
+            Problem("Você ainda não atualizou o seu perfil.");
     }
 
     [HttpPost]
