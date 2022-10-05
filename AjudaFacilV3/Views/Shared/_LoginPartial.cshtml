@@ -2,45 +2,49 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav navbar-brand">
+<ul class="navbar-nav navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        <li class="nav-item dropdown">
-
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-warning" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header" style="background-color: #6c8ff0;">
                 <li class="nav-item">
-                    <a class="nav-link text-primary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+                    <h5 class="offcanvas-title text-dark" id="offcanvasDarkNavbarLabel">Bem Vindo!</h5>
                 </li>
-                <li class="nav-item">
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="nav-link btn btn-link text-primary">Sair</button>
-                    </form>
-                </li>
-                <li>
-                    <a asp-controller="UserProfile" asp-action="DetailsProfile" class="dropdown-item">Perfil</a>
-                </li>
-                <li>
-                    <a asp-controller="Donation" asp-action="DetailsDonation" class="dropdown-item">Minhas Doações</a>
-                </li>
-            </ul>
-
-            @*<ul class="dropdown-menu">
-                <li>
-                    <a asp-controller="UserProfile" asp-action="DetailsProfile" class="dropdown-item">Perfil</a>
-                </li>
-                <li>
-                    <a asp-controller="Donation" asp-action="DetailsDonation" class="dropdown-item">Minhas Doações</a>
-                </li>
-            </ul>*@
-        </li>
+                <form class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Desejá mesmo Sair?">
+                        Sair
+                    </button>
+                    @*<button type="submit" class="nav-link btn btn-link text-primary">Sair</button>*@
+                </form>
+            </div>
+        <div class="offcanvas-body" style="background-color: #eef8e7;">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li>
+                                <a asp-controller="UserProfile" asp-action="DetailsProfile" class="dropdown-item">Perfil</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Donation" asp-action="DetailsDonation" class="dropdown-item">Minhas Doações</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+         </div>
     }
     else
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Registrar-se</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Entrar</a>
-        </li>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Entrar</a>
+            </li>
+            <li class="list-group-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Registrar-se</a>
+            </li>
+        </ul>
     }
 </ul>
