@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+#titulo{
+    font-family: sans-serif;
+    color: gray;
+    margin-left: 7%;
+
+}
+
+#subtitulo {
+    font-family: sans-serif;
+    color: gray;
+    margin-left: 10%;
+}
+fieldset {
+    border: 0;
+}
+body{
+    background-color: aliceblue;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: green;
+    margin-left: 36%;
+    justify-content: center;
+}
+
+input, select, textarea, button{
+    border-radius: 5px;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label{
+    margin-bottom: 0.2em;
+    color: red;
+    display: block;
+}
+
+fieldset.grupo .campo{
+    float: left;
+    margin-right: 1em;
+}
+
+.campo input[type="text"], .campo input[type="email"] .campo select, textarea{
+    padding:  0.2em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+.campo select option{
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textearea:focus{
+    background: white;
+}
+
+.botao {
+    font-size: 1.2em;
+    background: purple;
+    border: 0;
+    margin-bottom: 1em;
+    color: white;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0.5);
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.botao:hover{
+    background: gray;
+    box-shadow: inset 2px 2px 2px rgba(0,0,0.2);
+    text-shadow: none;
+
+}
+.botao, select{
+    cursor: pointer;
+}
+tituloprodutos{
+    font-family: sans-serif;
+    color: gray;
+    margin-left: 7%;
+
+}
+fieldset.grupoprodutos{
+    
+    margin-right: 0em;
+    height: 10%;
+
+}
+body.produto {
+   
+    background-color: aliceblue;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: black;
+    margin-left: 36%;
+    justify-content: center;
+    padding: 1px;
+    width: 1844px;
+    margin: 0 auto;
+}
+body.produto form{
+    text-align: left;
+    
+}
+body.produto form input.titulo{
+    width: 365px;
+    height: 31px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+}
+
+body.produto form textarea.mensagem{
+    width: 365px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    
+    
+}
+body.produto form select.doacao{
+    height: 33;
+    width: 365px;
+    font-size: 16px;
+}
+body.produto form input{
+    height: 33;
+    width: 365px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+   
+}
+body.produto h1#tituloprodutos{
+    height: 80;
+    text-align: left;
+    line-height: 359%;
+
+}
+body.produto label{
+    font-size: 22px;
+}
+
+body.produto input.telefone{
+    height: 33;
+    width: 249px;
+    font-size: 16px;
+}
+
+
+
+

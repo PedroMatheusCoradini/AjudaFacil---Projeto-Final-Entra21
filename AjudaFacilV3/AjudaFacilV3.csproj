@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Mappings\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>

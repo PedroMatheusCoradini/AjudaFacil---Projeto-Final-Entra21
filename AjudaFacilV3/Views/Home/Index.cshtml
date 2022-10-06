@@ -1,8 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="row text-center justify-content-center">
+    @*text-center justify-content-center*@
+    <hr />
+    <hr />
+    <h2 class="display-4">Vejá como sua doação faz a diferança</h2>
+    <hr />
+    <div class="col-sm-3">
+        <div class="card">
+            <img src="~/img/DoarEducacao.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Educação</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a class="btn btn-primary" asp-controller="Donation" asp-action="CreateSchoolSupplieDonation">Doar Agora</a>
+            </div>
+        </div>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="col-sm-3">
+        <div class="card">
+            <img src="~/img/doacao-de-roupa.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Roupas e acessorios</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a class="btn btn-primary" asp-controller="Donation" asp-action="CreateClothingDonation">Doar Agora</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card">
+            <img src="~/img/DoarOutros.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Doe oque você não usa mais</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a class="btn btn-primary">Doar Agora</a>
+            </div>
+        </div>
+    </div>
 </div>

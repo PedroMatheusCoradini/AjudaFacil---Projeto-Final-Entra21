@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap');
+
+html, body{
+    min-height: 100%;
+    margin: 0; 
+    padding: 0px;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: antiquewhite;
+  }
+body.paginaSite{
+    background: url("../img/fundo 2.jpg") no-repeat center fixed;
+    background-size: 100vw;
+}
+  
+
+nav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(22, 109, 196, 0.822);
+
+}
+
+.ajudafacil{
+    float: left;
+
+}
+
+.logoSite{
+    width: 90px;
+    height: 60px;
+    padding-top: 0px;
+    float: left;
+}
+
+nav a{
+    display: block;
+	width: auto;	
+	height: 45px;
+	padding: 5px;
+	float: right;
+	line-height: 55px;
+	color: white;
+	text-decoration: none; 
+    margin-left: 15px;
+    margin-right: 15px;
+    font-family:'Signika Negative';
+    font-weight: 800;
+    font-size: 21px;
+}
+
+.row{
+    margin-top: -200px;
+    display: flex;
+    align-items: right;
+    margin-left: -30px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 7px, 7px, 15px 0 rgb(50, 50, 50, 0.22);
+    padding: 8px;
+    margin: 10px;
+    width: 180px;
+    transition: all 0.3s ease-out;
+    background-color: rgb(25, 98, 176);
+
+}
+.card:hover{
+    transform: translateY(-5px);
+    cursor: pointer;
+
+}
+.image{
+    align-items: center;
+    max-width: 150px;
+    max-height: 110px;
+
+}
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+    color: #fff;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.content span{
+    color: #ff7200;
+    font-size: 65px
+}
+   /* =========== container 2 na pagina principal========*/
+
+   a:hover{
+   color: #085588;
+   }
+   
+   #login-container2{
+   background-color: rgb(25, 98, 176);
+   width: 450px;
+   height: 600px;
+   margin-left: 800px;
+   padding: 10px 20px;
+   margin-top: -400px;
+   border-radius: 10px;
+   text-align: center;
+   }
+   
+   label, input{
+   display: block;
+   width: 100%;
+   text-align: left;
+   }
+   label{
+   font-weight: bold;
+   }
+   input{
+   border-bottom: 2px solid #323232;
+   padding: 10px;
+   font-size: 1rem;
+   margin-bottom: 20px;
+   }
+   label,
+   textarea {
+       font-size: .8rem;
+       letter-spacing: 1px;
+   }
+   textarea {
+       padding: 25px;
+       width: 350px;
+       line-height: 1.5;
+       border-radius: 2px;
+       border: 1px solid #ccc;
+       box-shadow: 1px 1px 1px #999;
+   }
+   label {
+       display: block;
+       margin-bottom: 10px;
+   }
+   
+   input:focus{
+   border-bottom: 2px solid #085588;
+   }
+   
+   input[type="submit"]{
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: bold;
+   border: none;
+   height: 40px;
+   border-radius: 20px;
+   margin-top: 30px;
+   color: #fff;
+   background-color: #085588;
+   cursor: pointer;
+   }
+   
+   input[type="submit"]:hover{
+   background-color: #1b223c;
+   transition: .5s;
+   } 
+   footer{
+       width: 100%;
+       height: 40px;
+       background: rgba(22, 109, 196, 0.822);
+       bottom: 0;
+       position: fixed;
+       margin: auto 0;
+       
+   }
+   footer span{
+       display: inline-block; 
+       width: 47%;
+       color: black;
+       padding: 10px;
+   }
+   footer .assinatura{
+       text-align: right;
+       padding-left: 25px;
+   }
+   
+   
+   
+   
+    
+    
+    
+    
+       
+    
+
+
+
+
+
+
+
+
+     /* ======================== pagina do contato ============================*/
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Helvetica;
+color: #323232;
+border: none;
+}
+textarea:focus, input:focus{
+outline: none;
+}
+
+a, label{
+font-size: .8rem;
+}
+
+a:hover{
+color: #085588;
+}
+
+#login-container{
+background-color: rgb(62, 130, 199);
+width: 450px;
+height: 600px;
+margin-left: 450px;
+margin-right: 200px;
+padding: 20px 30px;
+margin-top: 10vh;
+border-radius: 10px;
+text-align: center;
+}
+
+form {
+margin-top: 20px;
+margin-bottom: 30px;
+}
+
+label, input{
+display: block;
+width: 100%;
+text-align: left;
+}
+
+label{
+font-weight: bold;
+}
+
+input{
+border-bottom: 2px solid #323232;
+padding: 10px;
+font-size: 1rem;
+margin-bottom: 20px;
+}
+
+label,
+textarea {
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+textarea {
+    padding: 25px;
+    width: 390px;
+    line-height: 1.5;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+   
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input:focus{
+border-bottom: 2px solid #085588;
+}
+
+input[type="submit"]{
+text-align: center;
+text-transform: uppercase;
+font-weight: bold;
+border: none;
+height: 40px;
+border-radius: 20px;
+margin-top: 30px;
+color: #fff;
+background-color: #085588;
+cursor: pointer;
+}
+
+input[type="submit"]:hover{
+background-color: #1b223c;
+transition: .5s;
+} 
+
+    /* ======================== pagina do sobre ============================*/
+
+.texto2{
+    text-align: left;
+    margin-left: 150px;
+    margin-top: 100px;
+    color: red;
+}
+.paragrafo{
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 150px;
+    font-family: sans-serif;
+}
+.bloco{
+  margin-top: -250px;
+  margin-left: 700px;
+   
+}
+
+    /* ======================== pagina do cadastro ============================*/
+
+.txt1{
+    text-align: left;
+    margin-top: 100px;
+    margin-left: 200px;
+    color: red;
+} 
+.txt2{
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 200px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
+.txt3{
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 200px;
+    font-family: sans-serif;
+}
+div.tres {
+    width: 900px;
+    height: 30px;
+    margin-left: 200px;
+    margin-top: 10px;
+    border: 25px solid; 
+    border-color: rgb(62, 130, 199);
+}
+.txt4{
+    margin-left: -5px;
+    margin-top: -15px;
+    color: white;
+}
+fieldset {
+    border: 0;
+}
+input, select, textarea, button{
+    border-radius: 5px;
+}
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label{
+    margin-bottom: 0.2em;
+    color: red;
+    display: block;
+}
+
+fieldset.grupo .campo{
+    float: left;
+    width: 350px;
+    margin-left: 200px;
+}
+.campo input[type="text"], .campo input[type="email"] .campo select, textarea{
+    padding:  0.5em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+.campo select option{
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textearea:focus{
+    background: white;
+}
+
+
+    
+   
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+     
+
+
+
+  
+  
