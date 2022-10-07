@@ -16,3 +16,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+body.imagemDeFundo {
+    background: url("../img/maosCoracaoDoar.jpg") no-repeat center fixed;
+    background-size: 100%;
+    background-position: left;
+}
+
+body div.logoFundoSchoolDonation {
+    background: url("../img/fundo.jpg") no-repeat center fixed;
+    background-size: 100%;
+    background-position: left;
+    /*min-height: 40vw;
+    max-height: 40vw;*/
+}

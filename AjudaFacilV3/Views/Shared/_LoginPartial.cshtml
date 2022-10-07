@@ -2,25 +2,26 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav navbar-nav">
+<nav class="navbar-nav navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end text-bg-warning" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header" style="background-color: #6c8ff0;">
+            <div class="offcanvas-header" style="background-color: #6c8ff0;"> @*#6c8ff0*@
                 <li class="nav-item">
                     <h5 class="offcanvas-title text-dark" id="offcanvasDarkNavbarLabel">Bem Vindo!</h5>
                 </li>
                 <form class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                     <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Desejá mesmo Sair?">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; vertical-align: text-bottom;">
+                            <path fill-rule="evenodd" d="M2.343 13.657A8 8 0 1113.657 2.343 8 8 0 012.343 13.657zM6.03 4.97a.75.75 0 00-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 101.06 1.06L8 9.06l1.97 1.97a.75.75 0 101.06-1.06L9.06 8l1.97-1.97a.75.75 0 10-1.06-1.06L8 6.94 6.03 4.97z"></path>
+                        </svg>
                         Sair
                     </button>
-                    @*<button type="submit" class="nav-link btn btn-link text-primary">Sair</button>*@
                 </form>
             </div>
-        
             <div class="offcanvas-body" style="background-color: #eef8e7;">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
@@ -48,4 +49,4 @@
             </li>
         </ul>
     }
-</ul>
+</nav>
