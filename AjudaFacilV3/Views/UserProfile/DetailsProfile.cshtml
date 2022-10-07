@@ -1,70 +1,61 @@
 ﻿@model AjudaFacilV3.Models.UserProfile
 
+<div class="row justify-content-lg-end" style="padding-top: 50px; padding-bottom: 10px; margin-right: 120px;">
+    <div class="col-md-2" style="padding-top: 50px; margin-left: 280px; margin-right: 50px;">
+        <dd >
+            <img src="~/img/doacao-de-roupa.jpg" class="img-fluid" style=" max-width: 121%; border-radius: 50px;" alt="...">
+        </dd>
+    </div>
 
-<h4>Minhas Informações</h4>
-<dl class="row">
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.Name)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.Name)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.BirthDate)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.BirthDate)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.CPF)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.CPF)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.Adress)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.Adress)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.City)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.City)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.CEP)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.CEP)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.PhoneNumber)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.PhoneNumber)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.Sex)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.Sex)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.TotalDonation)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.TotalDonation)
-    </dd>
-    <dt class="col-sm-2">
-        @Html.DisplayNameFor(model => model.User)
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(model => model.User)
-    </dd>
-</dl>
-<div>
-    <a asp-controller="UserProfile" asp-action="UpdateProfile" asp-route-id="@Model?.Id">Editar</a> |
-    <a asp-controller="Home" asp-action="Index">Voltar</a>
+    <div <div class="col-md-5" style="background-color: #bdc3f9e3; border-radius: 10px;">>
+        <div class="mb-4">
+            <dl>
+                <h4>Minhas Informações</h4>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.Name)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Name)" aria-label="Nome Completo" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.BirthDate)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.CPF)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.CPF)" aria-label="CPF" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.Adress)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Adress)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.City)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.City)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.CEP)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.CEP)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.PhoneNumber)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.Sex)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Sex)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.TotalDonation)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.TotalDonation)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+                <dt class="mb-4">
+                    @Html.DisplayNameFor(model => model.User)
+                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.User)" aria-label="Data de nascimento" disabled readonly>
+                </dt>
+            </dl>
+            <div>
+                <a asp-controller="UserProfile" asp-action="UpdateProfile" asp-route-id="@Model?.Id">Editar</a> |
+                <a asp-controller="Home" asp-action="Index">Voltar</a>
+            </div>
+        </div>
+    </div>
 </div>
