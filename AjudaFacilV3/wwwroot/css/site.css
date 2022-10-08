@@ -17,16 +17,20 @@ body {
   margin-bottom: 60px;
 }
 
-body.imagemDeFundo {
+body.donationImg {
     background: url("../img/maosCoracaoDoar.jpg") no-repeat center fixed;
     background-size: 100%;
     background-position: left;
 }
 
-body div.logoFundoSchoolDonation {
-    background: url("../img/fundo.jpg") no-repeat center fixed;
-    background-size: 100%;
-    background-position: left;
-    /*min-height: 40vw;
-    max-height: 40vw;*/
-}
+    body.imagenIndex {
+        background: url("../img/maosCoracaoDoar.jpg") no-repeat center fixed;
+        background-size: 100%;
+        background-position: left;
+    }
+
+    body.fundoSobreNos {
+        background: url("../img/fundo.jpg") no-repeat center fixed;
+        background-size: 100%;
+        background-position: left;
+    }

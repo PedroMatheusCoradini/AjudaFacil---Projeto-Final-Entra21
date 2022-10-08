@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Mappings\" />
-    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 </Project>

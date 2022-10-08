@@ -17,5 +17,5 @@ public class SchoolSupplieDonationViewModel
 
     [DisplayName("Imagem")]
     [Required(ErrorMessage = "Envie uma foto da doação")]
-    public string Image { get; set; }
+    public string Base64Image { get; set; }
 }

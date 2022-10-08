@@ -1,5 +1,8 @@
 ﻿@model AjudaFacilV3.ViewModels.SchoolSupplieDonationViewModel
 
+
+<body class="donationImg">
+
 <div class="container-fluid">
     <div>
         @*class="logoFundoSchoolDonation"*@
@@ -25,9 +28,9 @@
 
                     <div class="mb-3">
                         <label for="validationTextarea" class="form-label">Imagem da doação</label>
-                        <input asp-for="Image" type="file" class="form-control" aria-label="file example" required>
+                        <input asp-for="Base64Image" type="file" class="form-control" aria-label="file example" required>
                         @*<div class="invalid-feedback">Example invalid form file feedback</div>*@
-                        <span asp-validation-for="Image" class="text-danger"></span>
+                        <span asp-validation-for="Base64Image" class="text-danger"></span>
                     </div>
 
                     <div class="mb-3">
@@ -42,6 +45,7 @@
         </div>
     </div>
 </div>
+</body>
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }   

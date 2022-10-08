@@ -4,6 +4,8 @@ using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
+using System;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -29,8 +31,32 @@ public class DonationController : Controller
 
 	[HttpPost]
 	[ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateSchoolSupplieDonation([Bind("Id,Description,Weight,Image,User")] SchoolSupplieDonationViewModel donation)
+    public async Task<IActionResult> CreateSchoolSupplieDonation([Bind("Id,Description,Weight,Base64Image,User")] SchoolSupplieDonationViewModel donation)
     {
+        /*// salvar a imagen da doação do usuario para poder acessar depois
+        var fileName = $"{Guid.NewGuid().ToString()}.jpg";
+        //var data = donation.Base64Image.Substring(donation.Base64Image.LastIndexOf(',') + 1);
+        var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(donation.Base64Image, "");
+        byte[] bytes = Convert.FromBase64String(data);
+
+        try
+        {
+            await System.IO.File.WriteAllBytesAsync($"wwwroot/images/{fileName}", bytes);
+        }
+        catch (Exception)
+        {
+            return StatusCode(500);
+        }*/
+
+        /*try
+        {
+            await System.IO.File.WriteAllLinesAsync($"wwwroot/img/{donation.Base64Image}");
+        }
+        catch (Exception)
+        {
+            return StatusCode(500);
+        }*/
+
         if (ModelState.IsValid)
 		{
             var schoolSupplieDonation = new SchoolSupplieDonation
@@ -38,7 +64,7 @@ public class DonationController : Controller
                 Id = donation.Id,
                 Description = donation.Description,
                 Weight = donation.Weight,
-                Image = donation.Image,
+                Image = donation.Base64Image,
                 Donations = new Donation
                 {
                     Id = donation.Id,

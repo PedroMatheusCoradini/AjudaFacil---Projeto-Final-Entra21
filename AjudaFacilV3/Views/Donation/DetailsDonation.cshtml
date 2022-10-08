@@ -37,7 +37,11 @@
                     @Html.DisplayFor(modelItem => item.Weight)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Image)
+                    <picture>
+                        <source srcset="">
+                        <img src="@Html.DisplayFor(modelItem => item.Image)" class="img-fluid img-thumbnail" alt="@Html.DisplayFor(modelItem => item.Image)">
+                    </picture>
+                   @* <img src="@Html.DisplayFor(modelItem => item.Image)" class="rounded mx-auto d-block" alt="...">*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.User)
