@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using AjudaFacilV3.Models;
+using AjudaFacilV3.Areas.Identity.Pages.Account;
 
 namespace AjudaFacilV3.Controllers;
 
