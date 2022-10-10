@@ -3,7 +3,6 @@ using AjudaFacilV3.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -89,6 +88,7 @@ public class UserProfileController : Controller
             .FirstOrDefaultAsync(x => x.User == User.Identity.Name)) :
             Problem("Você ainda não atualizou o seu perfil.");
     }
+
 
     private bool ProfileExists(int id)
     {

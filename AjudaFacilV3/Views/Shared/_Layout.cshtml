@@ -17,17 +17,19 @@
 <body>
     <header>
         <nav class="navbar navbar-dark" style="background-color: #6c8ff0;">
-            <div class="container"> @*caso queira que o nome do site e o entra e registrese vao para o lado, use container-fluid*@
+            <div class="container">
+                @*caso queira que o nome do site e o entra e registrese vao para o lado, use container-fluid*@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AjudaFacil</a>
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"> 
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" aria-selected="true">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Sobre Nóz</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <button type="button" class="btn btn-outline-info text-black" style="background-color: #D2691E; border-radius: 10px;" data-bs-toggle="dropdown" aria-expanded="false">DOE AQUI</button>
+                        @*<button type="button" class="btn btn-outline-info text-black" style="background-color: #D2691E; border-radius: 10px;" data-bs-toggle="dropdown" aria-expanded="false">DOE AQUI</button>*@
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" asp-controller="Donation" asp-action="CreateSchoolSupplieDonation">Materiais Escolares</a>
