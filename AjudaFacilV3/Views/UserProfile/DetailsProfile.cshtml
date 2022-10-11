@@ -1,56 +1,145 @@
 ﻿@model AjudaFacilV3.Models.UserProfile
 
+
+@*<input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>*@
 <body>
-<div class="row justify-content-lg-end" style="padding-top: 50px; padding-bottom: 10px; margin-right: 120px;">
-    <div class="col-md-2" style="padding-top: 50px; margin-left: 280px; margin-right: 50px;">
-        <dd>
-            @*<img src="~/img/doacao-de-roupa.jpg" class="img-fluid" style=" max-width: 121%; border-radius: 50px;" alt="...">*@
-                <img src="~/img/doacao-de-roupa.jpg" alt="..." class="img-thumbnail" />
-        </dd>
+    <div class="container" style="background-color: #dce6eb; border-radius: 10px; padding-top: 50px; padding-bottom: 10px;">
+
+    <form class="row g-3">
+        <hr />
+        <div class="text-center">
+            <h2>Minhas Informações</h2>
+        </div>
+        <hr />
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-3" >
+                <label class="form-label">Nome</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Name)" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Telefone</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.PhoneNumber)" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">E-mail</label>
+                <input class="form-control" type="email" value="@Html.DisplayFor(model => model.User)" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+
+        <div class="row g-3 justify-content-center" style="margin-left: -114px">
+            <div class="col-2">
+                <label class="form-label">Data de Nascimento</label>
+                <input class="form-control" type="date" value="@Html.DisplayFor(model => model.BirthDate)" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Sexo</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Sex)" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Total de Doações</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.TotalDonation) : Doações feitas" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+
+        <div class="row g-3 justify-content-center" style="margin-left: -61px">
+            <div class="col-md-2">
+                <label class="form-label">Endereço</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Adress)" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Cidade</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.City)" aria-label="readonly input example" readonly>
+            </div>
+            @*<div class="col-md-2">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>*@
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">CEP</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.CEP)" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">CPF</label>
+                <input class="form-control" type="text" value="@Html.DisplayFor(model => model.CPF)" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+
+        @*<div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div>*@
+        <div style="margin-left: 160px;">
+            <a asp-controller="UserProfile" asp-action="UpdateProfile" asp-route-id="@Model?.Id">Editar</a> |
+            <a asp-controller="Home" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+
     </div>
 
-    <div <div class="col-md-5" style="background-color: #bdc3f9e3; border-radius: 10px;">
+
+
+
+
+
+    @*----------------------------------------------------------*@
+
+    @*<div class="row justify-content-lg-end" style="padding-top: 50px; padding-bottom: 10px; margin-right: 120px;">
+        <div class="col-md-2" style="padding-top: 50px; margin-left: 280px; margin-right: 50px;">
+            <dd>
+                <img src="~/img/doacao-de-roupa.jpg" class="img-fluid" style=" max-width: 121%; border-radius: 50px;" alt="..."> comentar essa linha
+                <img src="~/img/doacao-de-roupa.jpg" alt="..." class="img-thumbnail" />
+            </dd>
+        </div>
+
+        <div <div class="col-md-5" style="background-color: #bdc3f9e3; border-radius: 10px;">
         <div class="mb-4">
             <dl>
                 <h4>Minhas Informações</h4>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.Name)
+                    <b>Nome</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Name)" aria-label="Nome Completo" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.BirthDate)
+                    <b>Data de Nascimento</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.BirthDate)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.CPF)
+                    <b>CPF</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.CPF)" aria-label="CPF" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.Adress)
+                    <b>Endereço</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Adress)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.City)
+                    <b>Cidade</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.City)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.CEP)
+                    <b>CEP</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.CEP)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.PhoneNumber)" aria-label="Data de nascimento" disabled readonly>
+                    <b>Celular</b>
+                    <input class="form-control" type="tel" value="@Html.DisplayFor(model => model.PhoneNumber)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.Sex)
+                    <b>Sexo</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Sex)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.TotalDonation)
+                    <b>Total de doações</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.TotalDonation)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
                 <dt class="mb-4">
-                    @Html.DisplayNameFor(model => model.User)
+                    <b>Usuario</b>
                     <input class="form-control" type="text" value="@Html.DisplayFor(model => model.User)" aria-label="Data de nascimento" disabled readonly>
                 </dt>
             </dl>
@@ -59,6 +148,6 @@
                 <a asp-controller="Home" asp-action="Index">Voltar</a>
             </div>
         </div>
-    </div>
-</div>
+    </div>*@
+@*</div>*@
 </body>
