@@ -31,13 +31,13 @@ body.imagenIndex {
 
 body.fundoSobreNos {
     background: url("../img/fundo.jpg") no-repeat center fixed;
-    background-size: 100%;
+    background-size: 65%;
     background-position: left;
 }
 
 /*================================================================================================================================*/
 
-@import url('https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700&display=swap');*/
 
 * {
     margin: 0;
@@ -304,7 +304,17 @@ input#flip {
 
 .logoSite {
     width: 90px;
-    height: 60px;
+    height: 58px;
     padding-top: 0px;
     float: left;
+}
+
+
+/*Index Cards*/
+.body.imagenIndex, img{
+    height: 180px;
+}
+
+.body.imagenIndex, div.card-tamanho{
+    height: 100px;
 }
