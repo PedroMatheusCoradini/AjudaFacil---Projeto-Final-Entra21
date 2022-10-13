@@ -1,3 +1,8 @@
 SqlServer Rodando com docker: "Server=localhost,1433;Database=Nome do banco;User ID=sa;Password=1q2w3e4r@#$"
 --------------------------------
 SqlServer Normal Rodando sem senha e usuario: "Server=localhost;Database=NomedoBanco;Trusted_Connection=True"
+
+-----------------------------------
+SqlServer Rodando no pc do marlon:
+"Data Source=LAPTOP-VKBJ4J6T//SQLEXPRESS;Initial Catalog=PESSOA;Integrated Security=True"
+(o laptop é o nome do pc do marlon. Mudar depois.)

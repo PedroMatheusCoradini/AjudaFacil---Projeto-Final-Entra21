@@ -4,6 +4,8 @@ using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -12,9 +14,12 @@ public class DonationController : Controller
 {
     private readonly ApplicationDbContext _context;
 
-	public DonationController(ApplicationDbContext context)
+    private string caminhoServidor;
+
+	public DonationController(ApplicationDbContext context, IWebHostEnvironment sistema)
 	{
-		_context = context;
+        caminhoServidor = sistema.WebRootPath;
+        _context = context;
 	}
 
 	public IActionResult CreateClothingDonation()
@@ -29,31 +34,22 @@ public class DonationController : Controller
 
 	[HttpPost]
 	[ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateSchoolSupplieDonation([Bind("Id,Description,Weight,Base64Image,User")] SchoolSupplieDonationViewModel donation)
+    public async Task<IActionResult> CreateSchoolSupplieDonation([Bind("Id,Description,Weight,Base64Image,User")] SchoolSupplieDonationViewModel donation, IFormFile foto)
     {
-        /*// salvar a imagen da doação do usuario para poder acessar depois
-        var fileName = $"{Guid.NewGuid().ToString()}.jpg";
-        //var data = donation.Base64Image.Substring(donation.Base64Image.LastIndexOf(',') + 1);
-        var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(donation.Base64Image, "");
-        byte[] bytes = Convert.FromBase64String(data);
+        string caminhoParaSalvarImagem = caminhoServidor + "\\imagem\\";
+        string novoNomeParaImagem = Guid.NewGuid().ToString() + "_" + foto.FileName;
+        donation.Base64Image = novoNomeParaImagem;
 
-        try
-        {
-            await System.IO.File.WriteAllBytesAsync($"wwwroot/images/{fileName}", bytes);
-        }
-        catch (Exception)
-        {
-            return StatusCode(500);
-        }*/
 
-        /*try
+        if (!Directory.Exists(caminhoParaSalvarImagem))
         {
-            await System.IO.File.WriteAllLinesAsync($"wwwroot/img/{donation.Base64Image}");
+            Directory.CreateDirectory(caminhoParaSalvarImagem);
         }
-        catch (Exception)
+
+        using (var stream = System.IO.File.Create(caminhoParaSalvarImagem + novoNomeParaImagem))
         {
-            return StatusCode(500);
-        }*/
+            foto.CopyToAsync(stream);
+        }
 
         if (ModelState.IsValid)
 		{
@@ -78,7 +74,6 @@ public class DonationController : Controller
         return View(donation);
     }
 
-    
     public async Task<IActionResult> DetailsDonation()
     {
         return _context.SchoolSupplieDonations != null ?
@@ -97,5 +92,19 @@ public class DonationController : Controller
             })
             .ToListAsync()) :
             Problem("Não encontramos nenhuma doação!");
+    }
+
+    static public string EncodeToBase64(string texto)
+    {
+        try
+        {
+            byte[] textoAsBytes = Encoding.ASCII.GetBytes(texto);
+            string resultado = System.Convert.ToBase64String(textoAsBytes);
+            return resultado;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }
