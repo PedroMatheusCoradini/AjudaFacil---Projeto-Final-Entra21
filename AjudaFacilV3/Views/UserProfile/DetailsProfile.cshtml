@@ -1,7 +1,5 @@
 ﻿@model AjudaFacilV3.Models.UserProfile
 
-
-@*<input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>*@
 <body>
     <div class="container" style="background-color: #dce6eb; border-radius: 10px; padding-top: 50px; padding-bottom: 10px;">
         <form class="row g-3">
@@ -74,8 +72,8 @@
             </div>
 
             <div style="margin-left: 160px;">
-                <a asp-controller="UserProfile" asp-action="UpdateProfile" asp-route-id="@Model?.Id">Editar</a> |
-                <a asp-controller="Home" asp-action="Index">Voltar</a>
+                <input type="submit" class="btn btn-primary" asp-controller="UserProfile" asp-action="UpdateProfile" asp-route-id="@Model?.Id" value="Editar" /> |
+                <input type="submit" class="btn btn-primary" asp-controller="Home" asp-action="Index" value="Voltar" />
             </div>
         </form>
     </div>

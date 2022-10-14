@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<AjudaFacilV3.ViewModels.UserDonationsViewModel>
 
-
 <h4>Minhas Doações</h4>
 <table class="table">
     <thead>
@@ -39,9 +38,8 @@
                 <td>
                     <picture>
                         <source srcset="">
-                        <img src="~/imagem/@Html.DisplayFor(modelItem => item.Image)" class="img-thumbnail" style="width: 110px; height: 110px; border-radius: 86px;">
+                        <img src="~/imagem/@Html.DisplayFor(modelItem => item.Image)" class="img-thumbnail" style="width: 50px; height: 50px; border-radius: 86px;">
                     </picture>
-                   @* <img src="@Html.DisplayFor(modelItem => item.Image)" class="rounded mx-auto d-block" alt="...">*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.User)

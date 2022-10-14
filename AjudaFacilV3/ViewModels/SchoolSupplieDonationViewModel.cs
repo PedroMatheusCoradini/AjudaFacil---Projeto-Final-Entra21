@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Buffers.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace AjudaFacilV3.ViewModels;
 
@@ -20,6 +17,6 @@ public class SchoolSupplieDonationViewModel
 
     [DisplayName("Imagem")]
     [Required(ErrorMessage = "Envie uma foto da doação")]
-    public string Base64Image { get; set; } 
+    public IFormFile Base64Image { get; set; } 
     
 }

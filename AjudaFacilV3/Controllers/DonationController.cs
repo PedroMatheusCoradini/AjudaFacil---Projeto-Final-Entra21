@@ -4,8 +4,6 @@ using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -34,11 +32,10 @@ public class DonationController : Controller
 
 	[HttpPost]
 	[ValidateAntiForgeryToken]
-    public async Task<IActionResult> CreateSchoolSupplieDonation([Bind("Id,Description,Weight,Base64Image,User")] SchoolSupplieDonationViewModel donation, IFormFile foto)
+    public async Task<IActionResult> CreateSchoolSupplieDonation(SchoolSupplieDonationViewModel donation)
     {
         string caminhoParaSalvarImagem = caminhoServidor + "\\imagem\\";
-        string novoNomeParaImagem = Guid.NewGuid().ToString() + "_" + foto.FileName;
-        donation.Base64Image = novoNomeParaImagem;
+        string novoNomeParaImagem = Guid.NewGuid().ToString() + "_" + donation.Base64Image.FileName;
 
 
         if (!Directory.Exists(caminhoParaSalvarImagem))
@@ -46,19 +43,36 @@ public class DonationController : Controller
             Directory.CreateDirectory(caminhoParaSalvarImagem);
         }
 
-        using (var stream = System.IO.File.Create(caminhoParaSalvarImagem + novoNomeParaImagem))
+        try
         {
-            foto.CopyToAsync(stream);
+            using (var stream = System.IO.File.Create(caminhoParaSalvarImagem + novoNomeParaImagem))
+            {
+                await donation.Base64Image.CopyToAsync(stream);
+            }
         }
+        catch (Exception errorMessage)
+        {
+            return new JsonResult(errorMessage.Message);
+        }
+
+
+        // Se o modelo que vem do front não for valido eu retorno um apagina de erro
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
+
 
         if (ModelState.IsValid)
 		{
+            // Inicia um novo objeto das doações e passa os valores da viewModel para o objeto verdadeiro a ser salva no banco
             var schoolSupplieDonation = new SchoolSupplieDonation
             {
                 Id = donation.Id,
                 Description = donation.Description,
                 Weight = donation.Weight,
-                Image = donation.Base64Image,
+                Image = novoNomeParaImagem,
                 Donations = new Donation
                 {
                     Id = donation.Id,
@@ -66,9 +80,9 @@ public class DonationController : Controller
                     User = User.Identity.Name
                 }
             };
-            _context.Add(schoolSupplieDonation);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(CreateSchoolSupplieDonation));
+            _context.Add(schoolSupplieDonation); // adiciona ao contexto
+            await _context.SaveChangesAsync(); // salva tudo no banco
+            return RedirectToAction(nameof(CreateSchoolSupplieDonation)); // retorno para a mesma pagina de doacao
         }
 
         return View(donation);
@@ -76,6 +90,7 @@ public class DonationController : Controller
 
     public async Task<IActionResult> DetailsDonation()
     {
+        // retorna os detalhes de uma doacao se for diferente de nulo, se nao, retorna uma mensagem sobre o problema ocorrido
         return _context.SchoolSupplieDonations != null ?
             View(await _context.SchoolSupplieDonations
             .AsNoTracking()
@@ -92,19 +107,5 @@ public class DonationController : Controller
             })
             .ToListAsync()) :
             Problem("Não encontramos nenhuma doação!");
-    }
-
-    static public string EncodeToBase64(string texto)
-    {
-        try
-        {
-            byte[] textoAsBytes = Encoding.ASCII.GetBytes(texto);
-            string resultado = System.Convert.ToBase64String(textoAsBytes);
-            return resultado;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿@model AjudaFacilV3.Models.UserProfile
 
-
 <body>
     <div class="container" style="background-color: #dce6eb; border-radius: 10px; padding-top: 50px; padding-bottom: 10px;">
         <form class="row g-3" asp-action="UpdateProfile">
@@ -15,7 +14,6 @@
                 <div class="col-md-3">
                     <label class="form-label">Nome</label>
                     <input asp-for="Name" type="text" class="form-control" id="specificSizeInputName" placeholder="Digite seu nome">
-                    @*<input class="form-control" type="text" value="@Html.DisplayFor(model => model.Name)" aria-label="readonly input example" readonly>*@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="col-md-3">
@@ -40,11 +38,6 @@
                     <input asp-for="Sex" type="tel" class="form-control" id="specificSizeInputName" placeholder="Sexo">
                     <span asp-validation-for="Sex" class="text-danger"></span>
                 </div>
-                @*<div class="col-md-3">
-                    <label class="form-label">Sexo</label>
-                    <input class="form-control" type="text" value="@Html.DisplayFor(model => model.Sex)" aria-label="readonly input example" readonly>
-                    <span asp-validation-for="Sex" class="text-danger"></span>
-                </div>*@
                 <div class="col-md-2">
                     <label class="form-label">Total de Doações</label>
                     <input class="form-control" type="text" value="0 : Doações feitas" aria-label="readonly input example" disabled readonly>
@@ -62,13 +55,6 @@
                     <input asp-for="City" type="text" class="form-control" id="specificSizeInputName" placeholder="Cidade">
                     <span asp-validation-for="City" class="text-danger"></span>
                 </div>
-                @*<div class="col-md-2">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-                </select>
-                </div>*@
                 <div class="col-md-2">
                     <label for="inputZip" class="form-label">CEP</label>
                     <input asp-for="CEP" type="text" class="form-control" id="specificSizeInputName" placeholder="Digite seu CEP">
@@ -80,80 +66,15 @@
                     <span asp-validation-for="CPF" class="text-danger"></span>
                 </div>
             </div>
-
-            @*<div class="col-12">
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-            Check me out
-            </label>
-            </div>
-            </div>*@
             <div style="margin-left: 160px;">
-                <input type="submit" asp-action="UpdateProfile" value="UpdateProfile" class="btn btn-primary" /> |
-                <a asp-controller="Home" asp-action="Index">Voltar</a>
+                <input type="submit" asp-action="UpdateProfile" value="Atualizar" class="btn btn-primary" /> |
+                <input type="submit" class="btn btn-primary" asp-controller="Home" asp-action="Index" value="Voltar" />
             </div>
         </form>
 
     </div>
 
 </body>
-
-
-@*<div class="row justify-content-lg-end" style="margin-right: 120px;">
-    <div class="col-md-4">
-        <form asp-action="UpdateProfile">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="mb-3">
-                <h4>Autalizar perfil</h4>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="BirthDate" class="control-label"></label>
-                <input asp-for="BirthDate" class="form-control" />
-                <span asp-validation-for="BirthDate" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Adress" class="control-label"></label>
-                <input asp-for="Adress" class="form-control" />
-                <span asp-validation-for="Adress" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="CEP" class="control-label"></label>
-                <input asp-for="CEP" class="form-control" />
-                <span asp-validation-for="CEP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" type="tel" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Sex" class="control-label"></label>
-                <input asp-for="Sex" class="form-control" />
-                <span asp-validation-for="Sex" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <input type="submit" asp-action="UpdateProfile" value="UpdateProfile" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
 
 @section Scripts {
     @{

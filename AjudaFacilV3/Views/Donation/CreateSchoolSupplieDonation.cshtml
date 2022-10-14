@@ -2,7 +2,6 @@
 
 
 <body class="donationImg">
-
     <div class="container-fluid">
         <div>
             <div class="row justify-content-center" style="padding-top: 50px; padding-bottom: 10px;">
@@ -15,28 +14,19 @@
                             <label for="validationTextarea" class="form-label">Descrição</label>
                             <textarea class="form-control" asp-for="Description" id="validationTextarea" placeholder="Descreva um pouco sua doação" required></textarea>
                             <span asp-validation-for="Description" class="text-danger"></span>
-                            @*<div asp-validation-for="Description" class="invalid-feedback">Por favor descreva sua doação.</div>*@
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="Weight" class="control-label"></label>
                             <input asp-for="Weight" class="form-control" required />
-                            @*<div class="invalid-feedback">Informe o peso estimado da sua doação.</div>*@
                             <span asp-validation-for="Weight" class="text-danger"></span>
                         </div>
 
                         <div class="mb-3">
                             <label>Escolha sua imagem para upload</label>
-                            <input type="file" name="foto" />
-                            <br />
-
-
-                            <input asp-for="Base64Image" type="text" class="form-control" aria-label="file example" required>
-                            @*<label for="validationTextarea" class="form-label">Imagem da doação</label>
-                            <div class="invalid-feedback">Example invalid form file feedback</div>
-                            <span asp-validation-for="Base64Image" class="text-danger"></span>*@
+                            <input asp-for="Base64Image" type="file" name="Base64Image" required/>
+                            <span asp-validation-for="Base64Image" class="text-danger"></span>
                         </div>
-
                         <div class="mb-3">
                             <button type="submit" class="btn btn-secondary" style="background-color: #c67600;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
                                 JUNTE-SE A NÓS

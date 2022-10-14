@@ -17,23 +17,23 @@ body {
     margin-bottom: 60px;
 }
 
-body.donationImg {
-    background: url("../img/fundo2.jpg") no-repeat center fixed;
-    background-size: 100%;
-    background-position: left;
-}
+    body.donationImg {
+        background: url("../img/fundo2.jpg") no-repeat center fixed;
+        background-size: 100%;
+        background-position: left;
+    }
 
-body.imagenIndex {
-    background: url("../img/fundo2.jpg") no-repeat center fixed;
-    background-size: 100%;
-    background-position: left;
-}
+    body.imagenIndex {
+        background: url("../img/fundo2.jpg") no-repeat center fixed;
+        background-size: 100%;
+        background-position: left;
+    }
 
-body.fundoSobreNos {
-    background: url("../img/fundo.jpg") no-repeat center fixed;
-    background-size: 65%;
-    background-position: left;
-}
+    body.fundoSobreNos {
+        background: url("../img/fundo.jpg") no-repeat center fixed;
+        background-size: 65%;
+        background-position: left;
+    }
 
 /*================================================================================================================================*/
 
@@ -65,30 +65,30 @@ div.cadastroBonito {
     perspective: 2700px;
 }
 
-.Container2 .cover23 {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    width: 50%;
-    z-index: 98;
-    transition: all 1s ease;
-    transform-origin: left;
-    transform-style: preserve-3d;
-}
-
-    .Container2 .cover23::before {
-        background: #7d2ae8;
-        content: '';
+    .Container2 .cover23 {
         position: absolute;
+        top: 0;
+        left: 50%;
         height: 100%;
-        width: 100%;
-        opacity: 0.5;
+        width: 50%;
+        z-index: 98;
+        transition: all 1s ease;
+        transform-origin: left;
+        transform-style: preserve-3d;
     }
 
-.Container2 #flip:checked ~ .cover23 {
-    transform: rotateY(-180deg)
-}
+        .Container2 .cover23::before {
+            background: #7d2ae8;
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            opacity: 0.5;
+        }
+
+    .Container2 #flip:checked ~ .cover23 {
+        transform: rotateY(-180deg)
+    }
 
 /*--------------------------*/
 
@@ -118,33 +118,33 @@ div.cadastroBonito {
     perspective: 2700px;
 }
 
-.Container3 .cover24::before {
-    background: #7d2ae8;
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    opacity: 0.5;
-}
+    .Container3 .cover24::before {
+        background: #7d2ae8;
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0.5;
+    }
 
-.Container3 .cover24 img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-}
+    .Container3 .cover24 img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
 
-.Container3 form {
-    height: 100%;
-    width: 100%;
-    background: #fff;
-}
+    .Container3 form {
+        height: 100%;
+        width: 100%;
+        background: #fff;
+    }
 
-.Container3 .form-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    .Container3 .form-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
 /*------------------*/
 
@@ -182,15 +182,15 @@ form .form-content .title-login-form {
     color: #333;
 }
 
-form .form-content .title-login-form:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 25px;
-    background: #7d2ae8
-}
+    form .form-content .title-login-form:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 25px;
+        background: #7d2ae8
+    }
 
 form .singup-form .title-login-form:before {
     width: 20px;
@@ -309,10 +309,191 @@ input#flip {
     float: left;
 }
 
-.body.imagenIndex, img{
+.body.imagenIndex, img {
     height: 180px;
 }
 
-.body.imagenIndex, div.card-tamanho{
+.body.imagenIndex, div.card-tamanho {
     height: 100px;
+}
+
+
+/*RegisterIntitution*/
+
+div .sobrenostexto {
+    text-align: center;
+    margin-left: 150px;
+}
+
+body.fundoSobreNos {
+    background-size: 50%;
+}
+/*======================*/
+
+
+
+
+fieldset {
+    border: 0;
+}
+
+input, select, textarea, button {
+    border-radius: 5px;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+    .campo label {
+        margin-bottom: 0.2em;
+        color: black;
+        display: block;
+    }
+
+fieldset.grupo .campo {
+    float: left;
+    width: 350px;
+    margin-left: 200px;
+}
+
+.campo input[type="text"], .campo input[type="email"] .campo select, textarea {
+    padding: 0.5em;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+
+.campo select option {
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textearea:focus {
+    background: white;
+}
+
+input#buttonpre {
+    width: 100px;
+}
+
+input.button1 {
+    width: 10%;
+}
+
+div.Titlle {
+    width: 570px;
+    text-align: center;
+    margin-left: 375px;
+    margin-top: 40px;
+}
+
+input#nome {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#siteInsti {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#email {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#cpf {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#endereco {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#bairro {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#cidade {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+input#fone {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+
+/*----------*/
+
+#login-container2 {
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    width: 467px;
+    height: 280px;
+    margin-left: 829px;
+    margin-top: -280px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.content .par {
+    padding-top: 10px;
+    padding-left: 13px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+    color: #fff;
 }

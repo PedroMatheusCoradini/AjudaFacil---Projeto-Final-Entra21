@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using AjudaFacilV3.Models;
-using AjudaFacilV3.Areas.Identity.Pages.Account;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -20,6 +19,11 @@ public class HomeController : Controller
     }
 
     public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    public IActionResult RegisterInstitution()
     {
         return View();
     }
