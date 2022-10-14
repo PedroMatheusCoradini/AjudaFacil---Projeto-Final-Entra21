@@ -7,6 +7,8 @@ public class SchoolSupplieDonationViewModel
 {
     public int Id { get; set; }
 
+    public string Name { get; set; } = "school supplie donation";
+
     [DisplayName("Descrição")]
     [Required(ErrorMessage = "Descreva a sua doação")]
     public string Description { get; set; }

@@ -91,8 +91,48 @@ public class DonationController : Controller
 
     public async Task<IActionResult> DetailsDonation()
     {
+        // [FromQuery] int page = 0, [FromQuery] int pageSize = 5
+        List<UserDonationsViewModel> donationsList = new List<UserDonationsViewModel>();
+
+        var schoolSupplieDonationList = await _context.SchoolSupplieDonations
+            .AsNoTracking()
+            .Include(x => x.Donations)
+            .Where(x => x.Donations.User == User.Identity.Name)
+            .Select(x => new UserDonationsViewModel
+            {
+                Id = x.Id,
+                CreateAt = x.Donations.CreateAt,
+                Name = "Materiais Escolares.",
+                Description = x.Description,
+                Weight = x.Weight,
+                Image = x.Image,
+                User = x.Donations.User
+            })
+            .ToListAsync();
+
+        donationsList.AddRange(schoolSupplieDonationList);
+
+        var clothingDonationList = await _context.ClothingDonations
+            .AsNoTracking()
+            .Include(x => x.Donations)
+            .Where(x => x.Donations.User == User.Identity.Name)
+            .Select(x => new UserDonationsViewModel
+            {
+                Id = x.Id,
+                CreateAt = x.Donations.CreateAt,
+                Name = "Roupas",
+                Description = x.Description,
+                Weight = x.Weight,
+                Image = x.Image,
+                User = x.Donations.User
+            })
+            .ToListAsync();
+
+        donationsList.AddRange(clothingDonationList);
+
+        return View(donationsList);
         // retorna os detalhes de uma doacao se for diferente de nulo, se nao, retorna uma mensagem sobre o problema ocorrido
-        return _context.SchoolSupplieDonations != null ?
+        /*return _context.SchoolSupplieDonations != null ?
             View(await _context.SchoolSupplieDonations
             .AsNoTracking()
             .Include(x => x.Donations)
@@ -107,7 +147,7 @@ public class DonationController : Controller
                 User = x.Donations.User
             })
             .ToListAsync()) :
-            Problem("Não encontramos nenhuma doação!");
+            Problem("Não encontramos nenhuma doação!");*/
     }
 
 

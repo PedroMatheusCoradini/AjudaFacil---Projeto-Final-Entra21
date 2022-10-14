@@ -1,11 +1,14 @@
-﻿using AjudaFacilV3.Models;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace AjudaFacilV3.ViewModels;
 
 public class UserDonationsViewModel
 {
     public int Id { get; set; }
+
+    [DisplayName("Tipo de doação.")]
+    public string Name { get; set; }
+
     [DisplayName("Data da doação")]
     public DateTime CreateAt { get; set; }
     public int QuantityOfClothes { get; set; }
@@ -13,12 +16,12 @@ public class UserDonationsViewModel
     [DisplayName("Descrição")]
     public string Description { get; set; }
 
-    [DisplayName("Peso")]
+    [DisplayName("Peso em KG")]
     public int Weight { get; set; }
 
     [DisplayName("Imagem")]
     public string Image { get; set; }
 
-    [DisplayName("Doador")]
+    [DisplayName("E-mail do Doador")]
     public string User { get; set; } = string.Empty;
 }
