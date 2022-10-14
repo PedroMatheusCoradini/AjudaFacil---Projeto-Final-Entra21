@@ -8,6 +8,7 @@ public class UserDonationsViewModel
     public int Id { get; set; }
     [DisplayName("Data da doação")]
     public DateTime CreateAt { get; set; }
+    public int QuantityOfClothes { get; set; }
 
     [DisplayName("Descrição")]
     public string Description { get; set; }

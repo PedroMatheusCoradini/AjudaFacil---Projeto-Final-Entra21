@@ -14,24 +14,25 @@ public class DonationController : Controller
 
     private string caminhoServidor;
 
-	public DonationController(ApplicationDbContext context, IWebHostEnvironment sistema)
-	{
+    public DonationController(ApplicationDbContext context, IWebHostEnvironment sistema)
+    {
         caminhoServidor = sistema.WebRootPath;
         _context = context;
-	}
+    }
 
-	public IActionResult CreateClothingDonation()
-	{
-		return View();
-	}
+    public IActionResult CreateClothingDonation()
+    {
+        return View();
+    }
 
-	public IActionResult CreateSchoolSupplieDonation()
-	{
-		return View();
-	}
+    public IActionResult CreateSchoolSupplieDonation()
+    {
+        return View();
+    }
 
-	[HttpPost]
-	[ValidateAntiForgeryToken]
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateSchoolSupplieDonation(SchoolSupplieDonationViewModel donation)
     {
         string caminhoParaSalvarImagem = caminhoServidor + "\\imagem\\";
@@ -65,7 +66,7 @@ public class DonationController : Controller
 
 
         if (ModelState.IsValid)
-		{
+        {
             // Inicia um novo objeto das doações e passa os valores da viewModel para o objeto verdadeiro a ser salva no banco
             var schoolSupplieDonation = new SchoolSupplieDonation
             {
@@ -107,5 +108,53 @@ public class DonationController : Controller
             })
             .ToListAsync()) :
             Problem("Não encontramos nenhuma doação!");
+    }
+
+
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
+    public async Task<IActionResult> CreateClothingDonation(ClothingDonationViewModel model)
+    {
+        var caminhoParaSalvarImagem = caminhoServidor + "//imagem//";
+        var novoNomeParaImagem = Guid.NewGuid().ToString() + "_" + model.Base64Image.FileName;
+
+        if (!Directory.Exists(caminhoParaSalvarImagem))
+        {
+            Directory.CreateDirectory(caminhoParaSalvarImagem);
+        }
+
+        try
+        {
+            using (var stream = System.IO.File.Create(caminhoParaSalvarImagem + novoNomeParaImagem))
+            {
+                await model.Base64Image.CopyToAsync(stream);
+            }
+        }
+        catch (Exception)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
+        var clothingDonation = new ClothingDonation
+        {
+            Id = model.Id,
+            Description = model.Description,
+            Weight = model.Weight,
+            Image = novoNomeParaImagem,
+            Donations = new Donation
+            {
+                Id = model.Id,
+                CreateAt = DateTime.Now,
+                User = User.Identity.Name
+            }
+        };
+        _context.Add(clothingDonation);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(CreateClothingDonation));
     }
 }

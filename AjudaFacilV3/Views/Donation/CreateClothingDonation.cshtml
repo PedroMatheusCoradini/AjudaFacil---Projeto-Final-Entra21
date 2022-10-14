@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model AjudaFacilV3.ViewModels.ClothingDonationViewModel
+
+
+<body class="donationImg">
+    <div class="container-fluid">
+        <div>
+            <div class="row justify-content-center" style="padding-top: 50px; padding-bottom: 10px;">
+                <div class="col-md-5" style="background-color: #bdc3f9e3; border-radius: 10px;">
+                    <h2 class="text-center text-primary">Você tem o poder da mudança <br /> Doe agora <br /> Salve uma Vida.</h2>
+                    <hr />
+                    <form class="was-validated" asp-action="CreateClothingDonation" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="QuantityOfClothes" class="control-label">Quantidade de peças de roupa</label>
+                            <input asp-for="QuantityOfClothes" class="form-control" required />
+                            <span asp-validation-for="QuantityOfClothes" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="validationTextarea" class="form-label">Descrição</label>
+                            <textarea class="form-control" asp-for="Description" id="validationTextarea" placeholder="Descreva um pouco sua doação" required></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Weight" class="control-label">Peso</label>
+                            <input asp-for="Weight" class="form-control" required />
+                            <span asp-validation-for="Weight" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Escolha sua imagem para upload</label>
+                            <input asp-for="Base64Image" type="file" name="Base64Image" required />
+                            <span asp-validation-for="Base64Image" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-secondary" style="background-color: #c67600;" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
+                                JUNTE-SE A NÓS
+                            </button>
+                            <span value="Fazer Doação" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
