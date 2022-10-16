@@ -1,61 +1,65 @@
-﻿@model IEnumerable<AjudaFacilV3.ViewModels.UserDonationsViewModel>
+﻿@model X.PagedList.IPagedList<AjudaFacilV3.ViewModels.UserDonationsViewModel>
+@using X.PagedList.Mvc.Core
 
-<h4>Minhas Doações</h4>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreateAt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Weight)
-                </td>
-                <td>
-                    <picture>
-                        <source srcset="">
-                        <img src="~/imagem/@Html.DisplayFor(modelItem => item.Image)" class="img-thumbnail" style="width: 50px; height: 50px; border-radius: 86px;">
-                    </picture>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+<body>
+    <h3 style="margin-top: 80px;">Minhas Doações</h3>
+    <table class="table table-bordered border-primary text-center">
+        <thead>
+            <tr class="table-warning">
+                <th>
+                    <p>Data da doação</p>
+                </th>
+                <th>
+                    <p>Categoria da doação</p>
+                </th>
+                <th>
+                    <p>Descrição</p>
+                </th>
+                <th>
+                    <p>Peso em KG</p>
+                </th>
+                <th>
+                    <p>Imagem</p>
+                </th>
+                <th>
+                    <p>Email do doador</p>
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-primary">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        <picture>
+                            <source srcset="">
+                            <img src="~/imagem/@Html.DisplayFor(modelItem => item.Image)" class="img-thumbnail" style="width: 50px; height: 50px; border-radius: 86px;">
+                        </picture>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User)
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Cancelar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+Listando doações de @Model.FirstItemOnPage a @Model.LastItemOnPage de um total de @Model.TotalItemCount
+@Html.PagedListPager(Model, page => Url.Action("DetailsDonation", new { pagina = page}))
+

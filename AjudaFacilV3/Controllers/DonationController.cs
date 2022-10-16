@@ -4,6 +4,7 @@ using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -89,12 +90,16 @@ public class DonationController : Controller
         return View(donation);
     }
 
-    public async Task<IActionResult> DetailsDonation()
+
+    public async Task<ViewResult> DetailsDonation(int? pagina)
     {
-        // [FromQuery] int page = 0, [FromQuery] int pageSize = 5
+        // Cria uma lista para adicionar todos os tipos de doacoes
         List<UserDonationsViewModel> donationsList = new List<UserDonationsViewModel>();
 
-        var schoolSupplieDonationList = await _context.SchoolSupplieDonations
+
+        // Acesso o banco nas doacoes de school, pega a doação que é somente do usuario que esta logado
+        // cria uma viewModel para enviar as informações das doações padronizadas pro front-end.
+        var schoolSupplieDonationList = _context.SchoolSupplieDonations
             .AsNoTracking()
             .Include(x => x.Donations)
             .Where(x => x.Donations.User == User.Identity.Name)
@@ -108,11 +113,9 @@ public class DonationController : Controller
                 Image = x.Image,
                 User = x.Donations.User
             })
-            .ToListAsync();
+            .ToPagedList();
 
-        donationsList.AddRange(schoolSupplieDonationList);
-
-        var clothingDonationList = await _context.ClothingDonations
+        var clothingDonationList = _context.ClothingDonations
             .AsNoTracking()
             .Include(x => x.Donations)
             .Where(x => x.Donations.User == User.Identity.Name)
@@ -126,28 +129,19 @@ public class DonationController : Controller
                 Image = x.Image,
                 User = x.Donations.User
             })
-            .ToListAsync();
+            .ToPagedList();
 
+        // adiciona as duas listas de doacoes a lista principal
+        donationsList.AddRange(schoolSupplieDonationList);
         donationsList.AddRange(clothingDonationList);
 
-        return View(donationsList);
-        // retorna os detalhes de uma doacao se for diferente de nulo, se nao, retorna uma mensagem sobre o problema ocorrido
-        /*return _context.SchoolSupplieDonations != null ?
-            View(await _context.SchoolSupplieDonations
-            .AsNoTracking()
-            .Include(x => x.Donations)
-            .Where(x => x.Donations.User == User.Identity.Name)
-            .Select(x => new UserDonationsViewModel
-            {
-                Id = x.Id,
-                CreateAt = x.Donations.CreateAt,
-                Description = x.Description,
-                Weight = x.Weight,
-                Image = x.Image,
-                User = x.Donations.User
-            })
-            .ToListAsync()) :
-            Problem("Não encontramos nenhuma doação!");*/
+        int tamanhoPagina = 5;
+        int numeroPagina = pagina ?? 1;
+
+        // retorna pro front-end com a classe ToPagedList para poder fazer paginacao e controlar a quantidade de doações que é enviada.
+        return View(await donationsList
+            .OrderByDescending(x => x.CreateAt)
+            .ToPagedListAsync(numeroPagina, tamanhoPagina));
     }
 
 
