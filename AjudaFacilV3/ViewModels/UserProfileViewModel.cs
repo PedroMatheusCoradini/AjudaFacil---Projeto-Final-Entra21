@@ -1,18 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AjudaFacilV3.Models;
+namespace AjudaFacilV3.ViewModels;
 
-public class UserProfile
+public class UserProfileViewModel
 {
-    [Key]
     public int Id { get; set; }
 
     [StringLength(60, MinimumLength = 3)]
     public string Name { get; set; }
 
-    [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-    public DateTime BirthDate { get; set; } = DateTime.Now;
+    public DateTime BirthDate { get; set; }
 
     [StringLength(20, MinimumLength = 10)]
     public string CPF { get; set; }
@@ -23,10 +20,10 @@ public class UserProfile
     [StringLength(60, MinimumLength = 3)]
     public string City { get; set; }
 
-    [StringLength(20, MinimumLength = 11)]
+    [StringLength(20, MinimumLength = 8)]
     public string CEP { get; set; }
 
-    [StringLength(20, MinimumLength = 3)]
+    [StringLength(20, MinimumLength = 9)]
     public string PhoneNumber { get; set; }
 
     [StringLength(20, MinimumLength = 2)]

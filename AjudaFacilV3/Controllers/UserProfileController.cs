@@ -1,5 +1,6 @@
 ﻿using AjudaFacilV3.Data;
 using AjudaFacilV3.Models;
+using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -81,12 +82,35 @@ public class UserProfileController : Controller
     [HttpGet]
     public async Task<IActionResult> DetailsProfile(int? id)
     {
-        return _context.Profiles != null ?
+        var profile = await _context.Profiles.AsNoTracking().FirstOrDefaultAsync(x => x.User == User.Identity.Name);
+
+        if (profile == null)
+            return NotFound();
+
+        var profileViewModel = new UserProfileViewModel
+        {
+            Id = profile.Id,
+            Name = profile.Name,
+            BirthDate = profile.BirthDate,
+            CPF = profile.CPF,
+            Adress = profile.Adress,
+            City = profile.City,
+            CEP = profile.CEP,
+            PhoneNumber = profile.PhoneNumber,
+            Sex = profile.Sex,
+            User = profile.User
+        };
+
+        return profileViewModel != null ?
+            View(profileViewModel) :
+            Problem("Vicê ainda não atualizou o seu perfil.");
+
+        /*return _context.Profiles != null ?
             View(await _context.Profiles
             .AsNoTracking()
             .Where(x => x.User == User.Identity.Name)
             .FirstOrDefaultAsync(x => x.User == User.Identity.Name)) :
-            Problem("Você ainda não atualizou o seu perfil.");
+            Problem("Você ainda não atualizou o seu perfil.");*/
     }
 
 

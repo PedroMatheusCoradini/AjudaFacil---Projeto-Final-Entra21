@@ -17,28 +17,28 @@ body {
     margin-bottom: 60px;
 }
 
-    body.donationImg {
-        background: url("../img/fundo2.jpg") no-repeat center fixed;
-        background-size: 100%;
-        background-position: left;
-    }
+body.donationImg {
+    background: url("../img/fundo2.jpg") no-repeat center fixed;
+    background-size: 100%;
+    background-position: left;
+}
 
-    body.imagenIndex {
-        background: url("../img/fundo2.jpg") no-repeat center fixed;
-        background-size: 100%;
-        background-position: left;
-    }
+body.imagenIndex {
+    background: url("../img/fundo2.jpg") no-repeat center fixed;
+    background-size: 100%;
+    background-position: left;
+}
 
-    body.fundoSobreNos {
-        background: url("../img/fundo.jpg") no-repeat center fixed;
-        background-size: 65%;
-        background-position: left;
-    }
+body.fundoSobreNos {
+    background: url("../img/fundo.jpg") no-repeat center fixed;
+    background-size: 65%;
+    background-position: left;
+}
 
-/*================================================================================================================================*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700&display=swap');*/
-
+body.PresentationCreate{
+    background-color:bisque;
+}
+    /*================================================================================================================================*/
 * {
     margin: 0;
     padding: 0;
@@ -65,30 +65,30 @@ div.cadastroBonito {
     perspective: 2700px;
 }
 
-    .Container2 .cover23 {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        height: 100%;
-        width: 50%;
-        z-index: 98;
-        transition: all 1s ease;
-        transform-origin: left;
-        transform-style: preserve-3d;
-    }
+.Container2 .cover23 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    z-index: 98;
+    transition: all 1s ease;
+    transform-origin: left;
+    transform-style: preserve-3d;
+}
 
-        .Container2 .cover23::before {
-            background: #7d2ae8;
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            opacity: 0.5;
-        }
+.Container2 .cover23::before {
+    background: #7d2ae8;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
 
-    .Container2 #flip:checked ~ .cover23 {
-        transform: rotateY(-180deg)
-    }
+.Container2 #flip:checked ~ .cover23 {
+    transform: rotateY(-180deg)
+}
 
 /*--------------------------*/
 
@@ -118,33 +118,33 @@ div.cadastroBonito {
     perspective: 2700px;
 }
 
-    .Container3 .cover24::before {
-        background: #7d2ae8;
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        opacity: 0.5;
-    }
+.Container3 .cover24::before {
+    background: #7d2ae8;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
 
-    .Container3 .cover24 img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        position: absolute;
-    }
+.Container3 .cover24 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+}
 
-    .Container3 form {
-        height: 100%;
-        width: 100%;
-        background: #fff;
-    }
+.Container3 form {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+}
 
-    .Container3 .form-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+.Container3 .form-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /*------------------*/
 
@@ -182,15 +182,15 @@ form .form-content .title-login-form {
     color: #333;
 }
 
-    form .form-content .title-login-form:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 3px;
-        width: 25px;
-        background: #7d2ae8
-    }
+form .form-content .title-login-form:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background: #7d2ae8
+}
 
 form .singup-form .title-login-form:before {
     width: 20px;
@@ -220,12 +220,12 @@ form .form-content .input-box {
     border-bottom: 2px solid rgba(0,0,0,0.2)
 }
 
-    .form-content .input-box input:focus {
-    }
+.form-content .input-box input:focus {
+}
 
-    .form-content .input-box input:valid {
-        border-color: #7d2ae8;
-    }
+.form-content .input-box input:valid {
+    border-color: #7d2ae8;
+}
 
 .form-content .input-box i {
     position: absolute;
@@ -239,39 +239,39 @@ form .form-content .text {
     color: #333;
 }
 
-    form .form-content .text a {
-        text-decoration: none;
-    }
+form .form-content .text a {
+    text-decoration: none;
+}
 
-        form .form-content .text a:hover {
-            text-decoration: underline;
-        }
+form .form-content .text a:hover {
+    text-decoration: underline;
+}
 
 form .form-content .button {
     color: #fff;
     margin-top: 40px;
 }
 
-    form .form-content .button input {
-        color: #fff;
-        background: #7d2ae8;
-        border-radius: 6px;
-        padding: 0;
-        cursor: pointer;
-    }
+form .form-content .button input {
+    color: #fff;
+    background: #7d2ae8;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+}
 
-        form .form-content .button input:hover {
-            background: #5b13b9;
-        }
+form .form-content .button input:hover {
+    background: #5b13b9;
+}
 
 form .form-content label {
     color: #5b13b9;
     cursor: pointer;
 }
 
-    form .form-content label:hover {
-        text-decoration: underline;
-    }
+form .form-content label:hover {
+    text-decoration: underline;
+}
 
 input#flip {
     height: 0px;
@@ -333,6 +333,7 @@ body.fundoSobreNos {
 
 
 
+/*Cadastro de instituicao*/
 fieldset {
     border: 0;
 }
@@ -345,11 +346,11 @@ input, select, textarea, button {
     margin-bottom: 1em;
 }
 
-    .campo label {
-        margin-bottom: 0.2em;
-        color: black;
-        display: block;
-    }
+.campo label {
+    margin-bottom: 0.2em;
+    color: black;
+    display: block;
+}
 
 fieldset.grupo .campo {
     float: left;
@@ -380,6 +381,7 @@ input.button1 {
     width: 10%;
 }
 
+
 div.Titlle {
     width: 570px;
     text-align: center;
@@ -392,7 +394,7 @@ input#nome {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -403,7 +405,7 @@ input#siteInsti {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -414,7 +416,7 @@ input#email {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -425,7 +427,7 @@ input#cpf {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -436,7 +438,7 @@ input#endereco {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -447,7 +449,7 @@ input#bairro {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -458,7 +460,7 @@ input#cidade {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -469,7 +471,7 @@ input#fone {
     width: 100%;
     outline: none;
     border: none;
-    padding: 0 30px;
+    padding: 5px, 30px;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);

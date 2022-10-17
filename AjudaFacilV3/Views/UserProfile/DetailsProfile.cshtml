@@ -1,4 +1,4 @@
-﻿@model AjudaFacilV3.Models.UserProfile
+﻿@model AjudaFacilV3.ViewModels.UserProfileViewModel
 
 <body>
     <div class="container" style="background-color: #dce6eb; border-radius: 10px; padding-top: 50px; padding-bottom: 10px;">
@@ -40,7 +40,7 @@
             <div class="row g-3 justify-content-center" style="margin-left: -114px">
                 <div class="col-2">
                     <label class="form-label">Data de Nascimento</label>
-                    <input class="form-control" type="date" value="@Html.DisplayFor(model => model.BirthDate)" aria-label="readonly input example" readonly>
+                    <input class="form-control" type="date" asp-for="BirthDate" aria-label="readonly input example" readonly>
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Sexo</label>
