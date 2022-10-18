@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">E-mail</label>
-                    <input class="form-control" type="email" value="@Html.DisplayNameFor(model => model.User)" disabled readonly>
+                    <input class="form-control" type="email" value="@Html.DisplayFor(model => model.User)" disabled readonly>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Total de Doações</label>
-                    <input class="form-control" type="text" value="0 : Doações feitas" aria-label="readonly input example" disabled readonly>
+                    <input class="form-control" asp-for="TotalDonation" type="text" aria-label="readonly input example" disabled readonly>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
             </div>
             <div style="margin-left: 160px;">
                 <input type="submit" asp-action="UpdateProfile" value="Atualizar" class="btn btn-primary" /> |
-                <input type="submit" class="btn btn-primary" asp-controller="Home" asp-action="Index" value="Voltar" />
+                <a asp-controller="UserProfile" asp-action="DetailsProfile" class="btn btn-primary">Voltar</a>
             </div>
         </form>
 

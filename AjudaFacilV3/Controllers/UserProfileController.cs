@@ -4,6 +4,7 @@ using AjudaFacilV3.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using AjudaFacilV3.Services;
 
 namespace AjudaFacilV3.Controllers;
 
@@ -19,17 +20,25 @@ public class UserProfileController : Controller
 
     public async Task<IActionResult> UpdateProfile()
     {
-        return _context.Profiles != null ?
+        var userProfile = _context.Profiles.AsNoTracking().FirstOrDefault(x => x.User == User.Identity.Name);
+
+        if (userProfile == null)
+            return Problem("Você ainda não atualizou seu perfil.");
+
+        userProfile.TotalDonation = UserService.CountTotalDonations(_context, User.Identity.Name);
+
+        return View(userProfile);
+
+        /*return _context.Profiles != null ?
             View(await _context.Profiles
             .AsNoTracking()
-            .Where(x => x.User == User.Identity.Name)
             .FirstOrDefaultAsync(x => x.User == User.Identity.Name)) :
-            Problem("Você ainda não atualizou o seu perfil.");
+            Problem("Você ainda não atualizou o seu perfil.");*/
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> UpdateProfile(int id, [Bind("Id,Name,BirthDate,CPF,Adress,City,CEP,PhoneNumber,Sex,User")] UserProfile userProfile)
+    public async Task<IActionResult> UpdateProfile(UserProfile userProfile)
     {
         try
         {
@@ -47,7 +56,7 @@ public class UserProfileController : Controller
                     CEP = userProfile.CEP,
                     PhoneNumber = userProfile.PhoneNumber,
                     Sex = userProfile.Sex,
-                    TotalDonation = 0,
+                    TotalDonation = UserService.CountTotalDonations(_context, User.Identity.Name),
                     User = User.Identity.Name
                 };
 
@@ -65,7 +74,7 @@ public class UserProfileController : Controller
             informacoesDoUser.CEP = userProfile.CEP;
             informacoesDoUser.PhoneNumber = userProfile.PhoneNumber;
             informacoesDoUser.Sex = userProfile.Sex;
-            informacoesDoUser.TotalDonation = 0;
+            informacoesDoUser.TotalDonation = UserService.CountTotalDonations(_context, User.Identity.Name);
             informacoesDoUser.User = User.Identity.Name;
 
             _context.Update(informacoesDoUser);
@@ -82,35 +91,25 @@ public class UserProfileController : Controller
     [HttpGet]
     public async Task<IActionResult> DetailsProfile(int? id)
     {
-        var profile = await _context.Profiles.AsNoTracking().FirstOrDefaultAsync(x => x.User == User.Identity.Name);
-
-        if (profile == null)
-            return NotFound();
-
-        var profileViewModel = new UserProfileViewModel
-        {
-            Id = profile.Id,
-            Name = profile.Name,
-            BirthDate = profile.BirthDate,
-            CPF = profile.CPF,
-            Adress = profile.Adress,
-            City = profile.City,
-            CEP = profile.CEP,
-            PhoneNumber = profile.PhoneNumber,
-            Sex = profile.Sex,
-            User = profile.User
-        };
-
-        return profileViewModel != null ?
-            View(profileViewModel) :
-            Problem("Vicê ainda não atualizou o seu perfil.");
-
-        /*return _context.Profiles != null ?
+        return _context.Profiles != null ?
             View(await _context.Profiles
             .AsNoTracking()
-            .Where(x => x.User == User.Identity.Name)
+            .Select(x => new UserProfileViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Adress = x.Adress,
+                City = x.City,
+                BirthDate = x.BirthDate,
+                CEP = x.CEP,
+                CPF = x.CPF,
+                PhoneNumber = x.PhoneNumber,
+                Sex = x.Sex,
+                TotalDonation = UserService.CountTotalDonations(_context, User.Identity.Name),
+                User = x.User
+            })
             .FirstOrDefaultAsync(x => x.User == User.Identity.Name)) :
-            Problem("Você ainda não atualizou o seu perfil.");*/
+            Problem("Você ainda não atualizou o seu perfil.");
     }
 
 
