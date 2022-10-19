@@ -13,6 +13,9 @@ public class UserService
             .Where(x => x.User == user)
             .Count();
 
+        if (totalDonations == null)
+            return totalDonations = 0;
+
         return totalDonations;
     }
 }

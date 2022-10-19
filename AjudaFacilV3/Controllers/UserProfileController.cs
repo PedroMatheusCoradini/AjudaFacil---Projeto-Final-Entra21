@@ -20,18 +20,27 @@ public class UserProfileController : Controller
 
     public async Task<IActionResult> UpdateProfile()
     {
-        var userProfile = _context.Profiles.AsNoTracking().FirstOrDefault(x => x.User == User.Identity.Name);
+        var userProfile = await _context.Profiles.AsNoTracking().FirstOrDefaultAsync(x => x.User == User.Identity.Name);
 
         if (userProfile == null)
-            return Problem("Você ainda não atualizou seu perfil.");
+        {
+            return View(userProfile);
+        }
 
-        userProfile.TotalDonation = UserService.CountTotalDonations(_context, User.Identity.Name);
+        var userTotalDonationsResult = UserService.CountTotalDonations(_context, User.Identity.Name);
+
+        userProfile.TotalDonation = userTotalDonationsResult;
 
         return View(userProfile);
 
-        /*return _context.Profiles != null ?
+        //=====================
+
+        /*var userTotalDonationsResult = UserService.CountTotalDonations(_context, User.Identity.Name);
+
+        return _context.Profiles != null ?
             View(await _context.Profiles
             .AsNoTracking()
+            .Where(x => x.TotalDonation == userTotalDonationsResult)
             .FirstOrDefaultAsync(x => x.User == User.Identity.Name)) :
             Problem("Você ainda não atualizou o seu perfil.");*/
     }
@@ -82,7 +91,7 @@ public class UserProfileController : Controller
         }
         catch (Exception)
         {
-            throw;
+            return BadRequest();
         }
         return RedirectToAction(nameof(DetailsProfile));
     }
