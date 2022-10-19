@@ -16,5 +16,5 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<Donation> Donations { get; set; }
     public DbSet<SchoolSupplieDonation> SchoolSupplieDonations { get; set; }
     public DbSet<ClothingDonation> ClothingDonations { get; set; }
-    /*public DbSet<Institution> Institutions { get; set; }*/
+    public DbSet<Institution> Institutions { get; set; }
 }

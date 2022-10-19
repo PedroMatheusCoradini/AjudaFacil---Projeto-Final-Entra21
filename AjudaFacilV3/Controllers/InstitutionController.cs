@@ -18,36 +18,36 @@ public class InstitutionController : Controller
 		return View();
 	}
 
-	/*public async Task<IActionResult> RegisterInstitution(Institution model)
+	[HttpPost]
+	public async Task<IActionResult> RegisterInstitution(Institution model)
 	{
 		if (!ModelState.IsValid)
 		{
 			return BadRequest(ModelState);
 		}
 
-		var createInstitution = new Institution
-		{
-			Name = model.Name,
-			Email = model.Email,
-			Address = model.Address,
-			City = model.City,
-			Site = model.Site,
-			CNPJ = model.CNPJ,
-			District = model.District,
-			Phone = model.Phone,
-		};
-
 		try
 		{
-			await _context.AddAsync(createInstitution);
-			await _context.SaveChangesAsync();
-		}
+			var createInstitution = new Institution
+			{
+				Id = model.Id,
+				Name = model.Name,
+				Email = model.Email,
+				Address = model.Address,
+				City = model.City,
+				Site = model.Site,
+				CNPJ = model.CNPJ,
+				District = model.District,
+				Phone = model.Phone,
+			};
+
+			_context.Institutions.Add(createInstitution);
+			_context.SaveChanges();
+            return RedirectToAction(nameof(RegisterInstitution));
+        }
 		catch (Exception)
 		{
 			return NotFound();
 		}
-
-
-		return RedirectToAction(nameof(RegisterInstitution));
-	}*/
+	}
 }

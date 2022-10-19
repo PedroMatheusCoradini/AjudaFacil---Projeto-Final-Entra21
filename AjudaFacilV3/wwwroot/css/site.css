@@ -389,7 +389,7 @@ div.Titlle {
     margin-top: 40px;
 }
 
-input#nome {
+input#name {
     height: 100%;
     width: 100%;
     outline: none;
@@ -400,7 +400,7 @@ input#nome {
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-input#siteInsti {
+input#site {
     height: 100%;
     width: 100%;
     outline: none;
@@ -422,7 +422,7 @@ input#email {
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-input#cpf {
+input#cnpj {
     height: 100%;
     width: 100%;
     outline: none;
@@ -433,7 +433,7 @@ input#cpf {
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-input#endereco {
+input#address {
     height: 100%;
     width: 100%;
     outline: none;
@@ -444,7 +444,7 @@ input#endereco {
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-input#bairro {
+input#district {
     height: 100%;
     width: 100%;
     outline: none;
@@ -455,7 +455,7 @@ input#bairro {
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-input#cidade {
+input#city {
     height: 100%;
     width: 100%;
     outline: none;
@@ -466,7 +466,7 @@ input#cidade {
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-input#fone {
+input#phone {
     height: 100%;
     width: 100%;
     outline: none;

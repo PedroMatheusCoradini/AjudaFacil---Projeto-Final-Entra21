@@ -1,4 +1,6 @@
-﻿<body class="PresentationCreate">
+﻿@model AjudaFacilV3.Models.Institution
+
+<body class="PresentationCreate">
     <div class="row" style="margin-top: 10px;">
         <img src="~/img/instituicao.jpg" />
     </div>
@@ -15,51 +17,60 @@
     <center>
         <div class="PresentationCreate">
             <div class="box-shadow">
-                <form>
+                <form asp-action="RegisterInstitution" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text"></div>
                     <fieldset class="grupo">
                         <div class="campo">
                             <label for="nome">Nome da Instituição</label>
-                            <input type="text" name="nome" id="nome" class="txt" placeholder="Insira o nome da sua instituição" required>
+                            <input asp-for="Name" type="text" name="name" id="name" placeholder="Insira o nome da sua instituição" required>
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="campo">
                             <label for="siteInsti">Site da Instituição</label>
-                            <input type="text" name="siteInsti" id="siteInsti" class="txt" placeholder="Insira o site da Instituição" required>
+                            <input asp-for="Site" type="text" name="site" id="site"  placeholder="Insira o site da Instituição" required>
+                            <span asp-validation-for="Site" class="text-danger"></span>
                         </div>
                     </fieldset>
                     <fieldset class="grupo">
                         <div class="campo">
                             <label for="email">Email</label>
-                            <input type="text" name="email" id="email" class="txt" placeholder="Insira o email da instituição" required>
+                            <input asp-for="Email" type="text" name="email" id="email" placeholder="Insira o email da instituição" required>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="campo">
-                            <label for="cpf">CPF/CNPJ</label>
-                            <input type="text" name="cpf" id="cpf" class="txt" placeholder="Insira o CPF/CNPJ da Instituição " required>
+                            <label for="cpf">CNPJ</label>
+                            <input asp-for="CNPJ" type="text" name="cnpj" id="cnpj" class="txt" placeholder="Insira o CPF/CNPJ da Instituição " required>
+                            <span asp-validation-for="CNPJ" class="text-danger"></span>
                         </div>
                     </fieldset>
                     <fieldset class="grupo">
                         <div class="campo">
                             <label for="endereco">Endereço</label>
-                            <input type="text" name="endereco" id="endereco" class="txt" placeholder="Insira o endereço da empresa" required>
+                            <input asp-for="Address" type="text" name="address" id="address" class="txt" placeholder="Insira o endereço da empresa" required>
+                            <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                         <div class="campo">
                             <label for="Bairro">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" class="txt" placeholder="Insira qual o bairro da Instituição" required>
+                            <input asp-for="District" type="text" name="district" id="district" class="txt" placeholder="Insira qual o bairro da Instituição" required>
+                            <span asp-validation-for="District" class="text-danger"></span>
                         </div>
                     </fieldset>
                     <fieldset class="grupo">
                         <div class="campo">
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade" class="txt" placeholder="Insira qual cidade de Atuação" required>
+                            <input asp-for="City" type="text" name="city" id="city" class="txt" placeholder="Insira qual cidade de Atuação" required>
+                            <span asp-validation-for="City" class="text-danger"></span>
                         </div>
                         <div class="campo">
                             <label for="cidade">Fone/Celular</label>
-                            <input type="text" name="fone" id="fone" class="txt" placeholder="Insira o Contato da Instituição" required>
+                            <input asp-for="Phone" type="text" name="phone" id="phone" class="txt" placeholder="Insira o Contato da Instituição" required>
+                            <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                     </fieldset>
                     <div>
                         <center>
                             <input type="submit" value="Enviar" class="button1" width="9">
-                            <input type="submit" value="Limpar" class="button1" width="9">
+                            <input type="reset" value="Limpar" class="button1" width="9">
                         </center>
                     </div>
                 </form>
