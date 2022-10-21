@@ -22,10 +22,12 @@
 
                             <div class="title-login-form">Entrar</div>
                             <div class="input-boxes">
+                                <i class="fas fa-envelope"><span asp-validation-for="Input.Email" class="text-danger"></span></i>
                                 <div class="input-box">
                                     <i class="fas fa-envelope"></i>
                                     <input asp-for="Input.Email" type="email" placeholder="Insira seu Email" required>
                                 </div>
+                                <i class="fas fa-envelope"><span asp-validation-for="Input.Password" class="text-danger"></span></i>
                                 <div class="input-box">
                                     <i class="fas fa-envelope"></i>
                                     <input asp-for="Input.Password" type="password" placeholder="Insira sua senha" required>

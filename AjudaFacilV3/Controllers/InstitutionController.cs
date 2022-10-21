@@ -19,6 +19,7 @@ public class InstitutionController : Controller
 	}
 
 	[HttpPost]
+	[ValidateAntiForgeryToken]
 	public async Task<IActionResult> RegisterInstitution(Institution model)
 	{
 		if (!ModelState.IsValid)

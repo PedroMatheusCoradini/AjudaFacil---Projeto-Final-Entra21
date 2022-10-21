@@ -41,14 +41,18 @@
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="title-login-form">Inscreva-se</div>
                             <div class="input-boxes">
+                                <i class="fas fa-envelope"><span asp-validation-for="Input.Email" class="text-danger"></span></i>
                                 <div class="input-box">
                                     <i class="fas fa-envelope"></i>
                                     <input asp-for="Input.Email" type="text" placeholder="Insira um Email" required>
                                 </div>
+                                <i class="fas fa-envelope"><span asp-validation-for="Input.Password" class="text-danger"></span></i>
                                 <div class="input-box">
                                     <i class="fas fa-envelope"></i>
                                     <input asp-for="Input.Password" type="password" placeholder="Insira uma senha" required>
                                 </div>
+                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope"><span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span></i>
                                 <div class="input-box">
                                     <i class="fas fa-envelope"></i>
                                     <input asp-for="Input.ConfirmPassword" type="password" placeholder="Confirme sua senha" required>

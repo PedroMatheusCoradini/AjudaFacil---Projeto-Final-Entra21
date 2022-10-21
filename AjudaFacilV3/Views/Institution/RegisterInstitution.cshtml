@@ -17,8 +17,8 @@
     <center>
         <div class="PresentationCreate">
             <div class="box-shadow">
-                <form asp-action="RegisterInstitution" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text"></div>
+                <form asp-action="RegisterInstitution">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <fieldset class="grupo">
                         <div class="campo">
                             <label for="nome">Nome da Instituição</label>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="campo">
                             <label for="siteInsti">Site da Instituição</label>
-                            <input asp-for="Site" type="text" name="site" id="site"  placeholder="Insira o site da Instituição" required>
+                            <input asp-for="Site" type="text" name="site" id="site" placeholder="Insira o site da Instituição" required>
                             <span asp-validation-for="Site" class="text-danger"></span>
                         </div>
                     </fieldset>
